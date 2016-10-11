@@ -1,10 +1,21 @@
-var MyComponent = require('./components/testComponent/component.jsx');
+var AddCollectionExercisesComponent = require('./components/AddCollectionExercises/AddCollectionExercises.comp.jsx'),
+    PageTitleComponent = require('./components/shared/PageTitle/PageTitle.comp.jsx');
 
 
 /**
- * Application state
+ * Application store
  * ...
  */
+var appStore = {};
+
+var AppComponent = function () {
+    return (
+        <section>
+            <PageTitleComponent title="ONS Surveys Manager" />
+            <AddCollectionExercisesComponent />
+        </section>
+    );
+}
 
 
 /**
@@ -12,6 +23,6 @@ var MyComponent = require('./components/testComponent/component.jsx');
  */
 jQuery(document).ready(function () {
 
-    ReactDOM.render(<MyComponent  />, document.getElementById('testing'));
+    ReactDOM.render(<AppComponent />, document.getElementById('app'));
 
 });

@@ -5,10 +5,12 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     reactify = require('reactify'),
     source = require('vinyl-source-stream'),
+    livereload = require('gulp-livereload'),
 
     config = {
         jsSrc: './app/**/*.js',
-        sassSrc: './app/**/*.scss',
+        sassSrc: './app/app.scss',
+        //sassSrc: './app/**/*.scss',
         jsxSrc: './app/**/*.jsx',
         outputDir: './dist'
     };
@@ -20,7 +22,8 @@ var gulp = require('gulp'),
 gulp.task('compile:js', () => {
     return gulp.src(config.jsSrc)
         .pipe(concat('site.min.js'))
-        .pipe(gulp.dest(config.outputDir));
+        .pipe(gulp.dest(config.outputDir))
+        .pipe(livereload());
 });
 
 gulp.task('compile:sass', () => {
@@ -28,6 +31,7 @@ gulp.task('compile:sass', () => {
         .pipe(sass())
         .pipe(concat('site.min.css'))
         .pipe(gulp.dest(config.outputDir))
+        .pipe(livereload());
 });
 
 gulp.task('compile:jsx', () => {
@@ -38,7 +42,8 @@ gulp.task('compile:jsx', () => {
         .transform(reactify)
         .bundle()
         .pipe(source('site.min.js'))
-        .pipe(gulp.dest(config.outputDir));
+        .pipe(gulp.dest(config.outputDir))
+        .pipe(livereload());
 });
 
 
@@ -50,12 +55,17 @@ gulp.task('watch:compile:js', ['compile:js'], () => {
 });
 
 gulp.task('watch:compile:sass', ['compile:sass'], () => {
-    gulp.watch(config.sassSrc, ['compile:sass']);
+    gulp.watch('./app/**/*.scss', ['compile:sass']);
 });
 
 gulp.task('watch:compile:jsx', ['compile:jsx'], () => {
     gulp.watch(config.jsxSrc, ['compile:jsx']);
 });
+
+
+function notifyLivereload (e) {
+    livereload();
+}
 
 
 /**
@@ -66,5 +76,5 @@ gulp.task('dev', [
     'watch:compile:sass',
     'watch:compile:jsx'
 ], () => {
-
+    livereload.listen();
 });
