@@ -19,12 +19,12 @@ var gulp = require('gulp'),
 /**
  * Compile tasks
  */
-gulp.task('compile:js', () => {
+/*gulp.task('compile:js', () => {
     return gulp.src(config.jsSrc)
         .pipe(concat('site.min.js'))
         .pipe(gulp.dest(config.outputDir))
         .pipe(livereload());
-});
+});*/
 
 gulp.task('compile:sass', () => {
     return gulp.src(config.sassSrc)
@@ -49,10 +49,10 @@ gulp.task('compile:jsx', () => {
 
 /**
  * Watch tasks
- */
+ *//*
 gulp.task('watch:compile:js', ['compile:js'], () => {
     gulp.watch(config.jsSrc, ['compile:js']);
-});
+});*/
 
 gulp.task('watch:compile:sass', ['compile:sass'], () => {
     gulp.watch('./app/**/*.scss', ['compile:sass']);
@@ -72,7 +72,7 @@ function notifyLivereload (e) {
  * Run tasks
  */
 gulp.task('dev', [
-    'watch:compile:js',
+    //'watch:compile:js',
     'watch:compile:sass',
     'watch:compile:jsx'
 ], () => {

@@ -738,23 +738,40 @@
  * Components
  */
 .page-title-component > h1 {
-  padding: .8em 0;
+  padding: .7em 0;
   text-align: center; }
 
 /**
  * add-collection-exercises-component namespace
  */
+.add-collection-exercises-component {
+  max-width: 450px;
+  margin: 0 auto;
+  margin-top: 50px; }
+  .add-collection-exercises-component > h2 {
+    padding: 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: normal; }
+  .add-collection-exercises-component > .form-container {
+    padding: 30px;
+    background-color: #fff; }
+
 /**
  * Application theme
  */
 * {
   margin: 0;
-  padding: 0;
-  font-family: arial; }
+  padding: 0; }
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Lato", sans-serif;
+  background-color: #ebf0f2; }
 
 .page-title-container {
   background-color: #3a4b52; }
   .page-title-container .page-title-component {
     color: #fff; }
     .page-title-container .page-title-component > h1 {
-      font-weight: normal; }
+      font-weight: 400; }

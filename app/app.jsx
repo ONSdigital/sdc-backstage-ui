@@ -1,21 +1,36 @@
-var AddCollectionExercisesComponent = require('./components/AddCollectionExercises/AddCollectionExercises.comp.jsx'),
-    PageTitleComponent = require('./components/shared/PageTitle/PageTitle.comp.jsx');
+var ReactRedux = require('react-redux'),
+    Provider = ReactRedux.Provider,
+    Redux = require('redux'),
+
+    AppComponent = require('./components/App/App.comp.jsx');
+
+
+var userReducer = function (state, action) {
+
+    state = state || {};
+
+    switch(action.type) {
+        case 'TEST_ACTION':
+            return {
+                id: 123,
+                someProperty: 'Some Value'
+            }
+    }
+
+    return state;
+
+};
+
+
+var appReducer = Redux.combineReducers({
+    user: userReducer
+});
 
 
 /**
  * Application store
- * ...
  */
-var appStore = {};
-
-var AppComponent = function () {
-    return (
-        <section>
-            <PageTitleComponent title="ONS Surveys Manager" />
-            <AddCollectionExercisesComponent />
-        </section>
-    );
-}
+var appStore = Redux.createStore(appReducer);
 
 
 /**
@@ -23,6 +38,11 @@ var AppComponent = function () {
  */
 jQuery(document).ready(function () {
 
-    ReactDOM.render(<AppComponent />, document.getElementById('app'));
+    ReactDOM.render(
+        <Provider store={appStore}>
+            <AppComponent page="default" />
+        </Provider>,
+
+        document.getElementById('app'));
 
 });

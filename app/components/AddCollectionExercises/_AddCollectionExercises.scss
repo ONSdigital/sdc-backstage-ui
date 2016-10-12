@@ -2,5 +2,19 @@
  * add-collection-exercises-component namespace
  */
 .add-collection-exercises-component {
+    max-width : 450px;
+    margin : 0 auto;
+    margin-top : 50px;
 
+    > h2 {
+        padding : 20px;
+        text-align : center;
+        font-size : 32px;
+        font-weight : normal;
+    }
+
+    > .form-container {
+        padding : 30px;
+        background-color : #fff;
+    }
 }

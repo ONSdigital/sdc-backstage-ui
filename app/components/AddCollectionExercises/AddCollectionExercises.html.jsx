@@ -3,9 +3,13 @@ module.exports = function () {
 
         <section className="add-collection-exercises-component">
 
-            <h1>Add Collection Excercises</h1>
+            <h2>Add Collection Excercises</h2>
 
-            <p>{this.state.testProp}</p>
+            <div className="form-container">
+                <p>{this.state.testProp}</p>
+
+                <input onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
+            </div>
 
         </section>
 
