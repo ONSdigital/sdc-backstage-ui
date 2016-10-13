@@ -6,9 +6,9 @@ module.exports = function () {
             <h2>Add Collection Excercises</h2>
 
             <div className="form-container">
-                <p>{this.state.testProp}</p>
+                <p>{this.props.testProp}</p>
 
-                <input onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
+                <input className="btn btn-primary btn-large" onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
             </div>
 
         </section>

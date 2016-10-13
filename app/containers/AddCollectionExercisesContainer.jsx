@@ -3,15 +3,16 @@ var Redux = require('react-redux'),
     AddCollectionExercisesActions = require('../actions/CollectionExercises.actions.jsx'),
     AddCollectionExercisesComponent = require('../components/AddCollectionExercises/AddCollectionExercises.comp.jsx');
 
-function mapStateToProps (state) {
-    console.log(state);
+
+var mapStateToProps  = function (state) {
+    console.log('App State: ', state);
 
     return {
         testProp: 'Something different'
     };
-}
+};
 
-function mapDispatchToProps (dispatch) {
+var mapDispatchToProps = function (dispatch) {
     return {
         onSaveClicked: function () {
             console.log('on save clicked');
@@ -19,11 +20,13 @@ function mapDispatchToProps (dispatch) {
             dispatch(AddCollectionExercisesActions.ADD());
         }
     }
-}
+};
+
 
 var AddCollectionExercisesContainer = Redux.connect(
     mapStateToProps,
     mapDispatchToProps
 )(AddCollectionExercisesComponent);
+
 
 module.exports = AddCollectionExercisesContainer;

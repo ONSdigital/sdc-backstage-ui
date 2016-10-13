@@ -15,6 +15,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-react": "^3.1.0",
     "gulp-sass": "^2.3.2",
+    "node-static": "^0.7.9",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
   },
@@ -23,6 +24,8 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
     "redux": "^3.6.0"
   }
 }

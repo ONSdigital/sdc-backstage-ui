@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     reactify = require('reactify'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
+    static = require('node-static'),
 
     config = {
         jsSrc: './app/**/*.js',
@@ -77,4 +78,37 @@ gulp.task('dev', [
     'watch:compile:jsx'
 ], () => {
     livereload.listen();
+
+    var fileServer = new static.Server('./');
+
+    require('http').createServer(function (request, response) {
+        request.addListener('end', function () {
+            //
+            // Serve files!
+            //
+            fileServer.serve(request, response, function (e, res) {
+
+                if (e && (e.status === 404)) {
+                    fileServer.serveFile('/index.html', 404, {}, request, response);
+                }
+
+            });
+        }).resume();
+    }).listen(8181);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
