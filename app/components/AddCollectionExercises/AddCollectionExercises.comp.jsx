@@ -8,7 +8,8 @@ var AddCollectionExercisesComponent = React.createClass({
 
 
 AddCollectionExercisesComponent.propTypes = {
-    onSaveClicked: React.PropTypes.func.isRequired
+    onSaveClicked: React.PropTypes.func.isRequired,
+    surveyList: React.PropTypes.array
 };
 
 

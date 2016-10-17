@@ -1,3 +1,4 @@
+/*
 var Router = require('react-router').Router,
     Route = require('react-router').Route,
     Link = require('react-router').Link,
@@ -90,12 +91,12 @@ var AppComponent = React.createClass({
         console.log(nextProps);
     },
 
-    /**
+    /!**
      * Replace with react router
      *
      * TODO
      * Setup roots to change components used
-     */
+     *!/
     render: function () {
         return (
             <Router history={history}>
@@ -108,4 +109,4 @@ var AppComponent = React.createClass({
 
 });
 
-module.exports = AppComponent;
+module.exports = AppComponent;*/

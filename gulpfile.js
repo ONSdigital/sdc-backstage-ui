@@ -64,11 +64,6 @@ gulp.task('watch:compile:jsx', ['compile:jsx'], () => {
 });
 
 
-function notifyLivereload (e) {
-    livereload();
-}
-
-
 /**
  * Run tasks
  */

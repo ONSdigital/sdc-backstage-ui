@@ -9,7 +9,13 @@ var mapStateToProps  = function (state) {
     console.log('App State: ', state);
 
     return {
-        testProp: 'Test Property'
+        testProp: 'Test Property',
+		surveyList: state.surveys.items.map(function (item) {
+			return {
+				key: item.title,
+				value: item.title
+			};
+		})
     };
 };
 

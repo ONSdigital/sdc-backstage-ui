@@ -16,7 +16,10 @@
     "gulp-react": "^3.1.0",
     "gulp-sass": "^2.3.2",
     "node-static": "^0.7.9",
+    "object-assign": "^4.1.0",
     "reactify": "^1.1.1",
+    "redux-logger": "^2.7.0",
+    "redux-thunk": "^2.1.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
