@@ -1,41 +1,38 @@
 var Provider = require('react-redux').Provider,
-    Redux = require('redux'),
     Router = require('react-router').Router,
     Route = require('react-router').Route,
     Link = require('react-router').Link,
     browserHistory = require('react-router').browserHistory,
 
-    thunkMiddleware = require('redux-thunk').default,
-    createLogger = require('redux-logger'),
-
-    assign = require('object-assign'),
-
     syncHistoryWithStore = require('react-router-redux').syncHistoryWithStore,
-    routerReducer = require('react-router-redux').routerReducer,
-    routerMiddleware = require('react-router-redux').routerMiddleware,
 
     render = require('react-dom').render,
 
+    locationActions = require('./actions/Location.actions.jsx'),
+
+    /**
+     * Containers
+     */
     AddCollectionExercisesContainer = require('./containers/AddCollectionExercisesContainer.jsx'),
 
     /**
      * Actions
      */
     surveyActions = require('./actions/Surveys.actions.jsx'),
-    locationActions = require('./actions/Location.actions.jsx'),
-
-    /**
-     * Reducers
-     */
-    uiReducer = require('./reducers/ui.jsx'),
-    surveysReducer = require('./reducers/surveys.jsx'),
-    userReducer = require('./reducers/user.jsx'),
 
     /**
      * Components
      */
     MainLayout = require('./components/shared/layout/MainLayout.jsx'),
-    NoMatchLayout = require('./components/shared/layout/NoMatchLayout.jsx');
+    NoMatchLayout = require('./components/shared/layout/NoMatchLayout.jsx'),
+
+    /**
+     * Store
+     */
+    appStore = require('./stores/backstage.store.jsx');
+
+
+var history = syncHistoryWithStore(browserHistory, appStore);
 
 var pageState = {
 
@@ -139,12 +136,12 @@ var pageState = {
 /**
  * Application store
  */
-var appStore = Redux.createStore(
+/*var appStore = Redux.createStore(
     Redux.combineReducers({
 
-        /**
+        /!**
          * Data collections
-         */
+         *!/
         //collectionExercises: <collectionExercisesReducer>,
 
         //respondants: <respondants>,
@@ -157,11 +154,11 @@ var appStore = Redux.createStore(
         // Temp =========
         user: userReducer,
 
-        /*something: function (state, action) {
+        /!*something: function (state, action) {
             return {
                 comment: 'Just another function'
             };
-        },*/
+        },*!/
         // End temp =====
 
 
@@ -175,7 +172,7 @@ var appStore = Redux.createStore(
         createLogger(),
         routerMiddleware(browserHistory)
     )
-);
+);*/
 
 
 appStore.dispatch(surveyActions.FETCH()).then(function (res) {
@@ -183,10 +180,6 @@ appStore.dispatch(surveyActions.FETCH()).then(function (res) {
 });
 
 locationActions.setStore(appStore);
-
-
-
-var history = syncHistoryWithStore(browserHistory, appStore);
 
 /**
  * Boot
@@ -198,11 +191,11 @@ jQuery(document).ready(function () {
             <Router history={history}>
                 <Route component={MainLayout}>
                     <Route path="/" component={pageState.default} />
-                    <Route path="create" component={pageState.collectionExercise.create}/>
-                    <Route path="publish" component={pageState.collectionExercise.publish}/>
-                    <Route path="list" component={pageState.collectionExercise.list}/>
+                    <Route path="create" component={pageState.collectionExercise.create} />
+                    <Route path="publish" component={pageState.collectionExercise.publish} />
+                    <Route path="list" component={pageState.collectionExercise.list} />
                 </Route>
-                <Route path="*" component={NoMatchLayout}/>
+                <Route path="*" component={NoMatchLayout} />
             </Router>
         </Provider>,
 

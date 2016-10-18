@@ -109,7 +109,6 @@ var mapDispatchToProps = function (dispatch) {
 
 		onSurveyListOptionChange: function (e) {
 			var el = e.target;
-			console.log($('option:selected', el).attr('data-frequency'));
 			dispatch(CollectionExercisesActions.TOGGLE_PERIOD($('option:selected', el).attr('data-frequency')));
 		}
     }
