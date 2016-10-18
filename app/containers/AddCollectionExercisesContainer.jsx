@@ -104,7 +104,7 @@ function mapDispatchToProps (dispatch) {
     return {
         onSaveClicked: function () {
             dispatch(CollectionExercisesActions.ADD());
-			locationActions.change('/');
+			locationActions.change('/collection-exercises');
         },
 
 		onSurveyListOptionChange: function (e) {

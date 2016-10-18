@@ -13,7 +13,7 @@ module.exports = function () {
 							<button className="tab tab-off">Closed</button>
 							<button className="tab tab-off">All</button>
 						</div>
-						<a href="#" className="btn btn-primary add-btn">Add collection exercise</a>
+						<button onClick={this.props.onAddCollectionExerciseClick} className="btn btn-primary add-btn">Add collection exercise</button>
 					</div>
 
 				</div>

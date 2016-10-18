@@ -1,3 +1,5 @@
+var PageTitleComponent = require('../PageTitle/PageTitle.comp.jsx');
+
 var NoMatchLayout = React.createClass({
 
 	render: function () {

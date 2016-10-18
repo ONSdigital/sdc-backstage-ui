@@ -43,9 +43,7 @@ var pageState = {
                     <h2>Start Page (temp)</h2>
 
                     <h3>Collection Exercise</h3>
-                    <p><Link className="btn btn-info btn-large" to={'/create'}>Create</Link></p>
-                    <p><Link className="btn btn-info btn-large" to={'/publish'}>Publish</Link></p>
-                    <p><Link className="btn btn-info btn-large" to={'/list'}>List</Link></p>
+                    <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
                 </div>
             );
         },
@@ -120,9 +118,9 @@ jQuery(document).ready(function () {
             <Router history={history}>
                 <Route component={MainLayout}>
                     <Route path="/" component={pageState.default} />
-                    <Route path="create" component={pageState.collectionExercise.create} />
-                    <Route path="publish" component={pageState.collectionExercise.publish} />
-                    <Route path="list" component={pageState.collectionExercise.list} />
+                    <Route path="collection-exercises" component={pageState.collectionExercise.list} />
+                    <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
+                    <Route path="collection-exercises/publish" component={pageState.collectionExercise.publish} />
                 </Route>
                 <Route path="*" component={NoMatchLayout} />
             </Router>
