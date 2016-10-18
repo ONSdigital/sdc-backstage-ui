@@ -3,12 +3,17 @@
     padding : 0;
 }
 
+html {
+    font-size : 100%;
+}
+
 h2 {
     line-height : 1.5em;
     padding : .3em 0;
 }
 
 body {
+    color : #0a0a0a;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Lato", sans-serif;
     background-color : #ebf0f2;
@@ -60,3 +65,80 @@ body {
         }
     }
 }
+
+
+.table-wrap {
+    > table {
+        width : 100%;
+
+        th,
+        td {
+            padding : 0.5rem 1rem;
+        }
+    }
+
+    .table-header {
+        background-color : #f2f2f2;
+        border : 1px solid #e0e0e0;
+    }
+
+    .t-row {
+        background-color : #fff;
+        border : 1px solid #ededed;
+
+        > td {
+            padding-top : 1.25rem;
+            padding-bottom : 1.25rem;
+        }
+    }
+}
+
+/**
+ * Copied
+ * =============================
+ */
+.tab-bar-wrap {
+    background-color : #fff;
+}
+
+.tab-bar {
+    position : relative;
+    height : 60px;
+
+    .tabs {
+        position : absolute;
+        left : 0;
+        bottom : 0;
+
+        .tab {
+            display : inline-block;
+            padding : 8px 0;
+            font-size :18px;
+            background-color : transparent;
+            border : none;
+            border-bottom : 3px solid transparent;
+
+            + .tab {
+                margin-left : 1em;
+            }
+        }
+
+        .tab-off {
+            color : #aaa;
+        }
+
+        .tab-on {
+            border-color : #4abee2;
+        }
+    }
+
+    .add-btn {
+        position : absolute;
+        top : 13px;
+        right : 0;
+    }
+}
+/**
+ * =============================
+ * End Copied
+ */

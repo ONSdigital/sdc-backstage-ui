@@ -8,17 +8,18 @@ var Provider = require('react-redux').Provider,
 
     render = require('react-dom').render,
 
-    locationActions = require('./actions/Location.actions.jsx'),
-
     /**
      * Containers
      */
     AddCollectionExercisesContainer = require('./containers/AddCollectionExercisesContainer.jsx'),
+    CollectionExerciseListContainer = require('./containers/CollectionExerciseListContainer.jsx'),
 
     /**
      * Actions
      */
     surveyActions = require('./actions/Surveys.actions.jsx'),
+    locationActions = require('./actions/Location.actions.jsx'),
+    collectionExerciseActions = require('./actions/CollectionExercises.actions.jsx'),
 
     /**
      * Components
@@ -38,7 +39,7 @@ var pageState = {
 
         tempHub: function () {
             return (
-                <div>
+                <div className="container">
                     <h2>Start Page (temp)</h2>
 
                     <h3>Collection Exercise</h3>
@@ -53,13 +54,15 @@ var pageState = {
 
             create: function () {
                 return (
-                    <AddCollectionExercisesContainer />
-                )
+                    <div className="container">
+                        <AddCollectionExercisesContainer />
+                    </div>
+                );
             },
 
             publish: function () {
                 return (
-                    <div>
+                    <div className="container">
                         <h2>Collection Exercise</h2>
                         <ul className="details-list">
                             <li className="row details-list-item">
@@ -88,41 +91,7 @@ var pageState = {
 
             list: function () {
                 return (
-                    <div>
-                        <h2>Collection Exercise list</h2>
-                        <ul className="row">
-                            <li className="col-xs-6">
-                                <strong>Survey</strong>
-                            </li>
-                            <li className="col-xs-6">
-                                <strong>Period</strong>
-                            </li>
-                        </ul>
-                        <ul className="row">
-                            <li className="col-xs-6">
-                                <strong>Survey name</strong>
-                            </li>
-                            <li className="col-xs-6">
-                                <strong>...</strong>
-                            </li>
-                        </ul>
-                        <ul className="row">
-                            <li className="col-xs-6">
-                                <strong>Survey name</strong>
-                            </li>
-                            <li className="col-xs-6">
-                                <strong>...</strong>
-                            </li>
-                        </ul>
-                        <ul className="row">
-                            <li className="col-xs-6">
-                                <strong>Survey name</strong>
-                            </li>
-                            <li className="col-xs-6">
-                                <strong>...</strong>
-                            </li>
-                        </ul>
-                    </div>
+                    <CollectionExerciseListContainer />
                 );
             }
 
@@ -133,51 +102,11 @@ var pageState = {
         }
     };
 
-/**
- * Application store
- */
-/*var appStore = Redux.createStore(
-    Redux.combineReducers({
+appStore.dispatch(surveyActions.REQUEST());
+appStore.dispatch(surveyActions.FETCH());
 
-        /!**
-         * Data collections
-         *!/
-        //collectionExercises: <collectionExercisesReducer>,
-
-        //respondants: <respondants>,
-
-        //reportingUnits: <reportingUnitsReducer>,
-
-        surveys: surveysReducer,
-
-
-        // Temp =========
-        user: userReducer,
-
-        /!*something: function (state, action) {
-            return {
-                comment: 'Just another function'
-            };
-        },*!/
-        // End temp =====
-
-
-        ui: uiReducer,
-
-        routing: routerReducer
-    }),
-
-    Redux.applyMiddleware(
-        thunkMiddleware,
-        createLogger(),
-        routerMiddleware(browserHistory)
-    )
-);*/
-
-
-appStore.dispatch(surveyActions.FETCH()).then(function (res) {
-    //console.log('Response from ajax request', arguments);
-});
+appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
+appStore.dispatch(collectionExerciseActions.FETCH_ALL());
 
 locationActions.setStore(appStore);
 

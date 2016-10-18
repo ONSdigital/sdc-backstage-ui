@@ -73,7 +73,7 @@ var reportingUnitOptions = function (key) {
 	}[key] || [];
 };
 
-var mapStateToProps  = function (state) {
+function mapStateToProps (state) {
     return {
 		surveyList: state.surveys.items.map(function (item) {
 				return {
@@ -98,9 +98,9 @@ var mapStateToProps  = function (state) {
 
 		selectedReportingPeriodOptions: reportingUnitOptions(state.ui.collectionExercise.add.selectedReportingPeriodType)
     };
-};
+}
 
-var mapDispatchToProps = function (dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         onSaveClicked: function () {
             dispatch(CollectionExercisesActions.ADD());
@@ -112,7 +112,7 @@ var mapDispatchToProps = function (dispatch) {
 			dispatch(CollectionExercisesActions.TOGGLE_PERIOD($('option:selected', el).attr('data-frequency')));
 		}
     }
-};
+}
 
 var AddCollectionExercisesContainer = Redux.connect(
     mapStateToProps,

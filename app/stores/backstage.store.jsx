@@ -13,7 +13,8 @@ var Redux = require('redux'),
 	 */
 	uiReducer = require('../reducers/ui.jsx'),
 	surveysReducer = require('../reducers/surveys.jsx'),
-	userReducer = require('../reducers/user.jsx');
+	userReducer = require('../reducers/user.jsx'),
+	collectionExercisesReducer = require('../reducers/collectionExercises.jsx');
 
 /**
  * Application store
@@ -24,7 +25,7 @@ var appStore = Redux.createStore(
 		/**
 		 * Data collections
 		 */
-		//collectionExercises: <collectionExercisesReducer>,
+		collectionExercises: collectionExercisesReducer,
 
 		//respondants: <respondants>,
 

@@ -6,9 +6,7 @@ var MainLayout = React.createClass({
 		return (
 			<section>
 				<PageTitleComponent title="ONS Surveys Manager" />
-				<section className="container">
-					{this.props.children}
-				</section>
+				{this.props.children}
 			</section>
 		);
 	}

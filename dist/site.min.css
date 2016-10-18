@@ -3299,7 +3299,7 @@ input[type="button"].btn-block {
  */
 .page-title-component > h1 {
   margin: 0;
-  padding: .7em 0;
+  padding: .65em 0;
   font-size: 25px;
   text-align: center; }
 
@@ -3309,7 +3309,7 @@ input[type="button"].btn-block {
 .add-collection-exercises-component {
   max-width: 450px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   padding-bottom: 50px; }
   .add-collection-exercises-component > h2 {
     padding: 20px;
@@ -3320,6 +3320,11 @@ input[type="button"].btn-block {
     padding: 30px;
     background-color: #fff; }
 
+.collection-exercise-list-component .survey-list {
+  margin-top: 2rem; }
+  .collection-exercise-list-component .survey-list td {
+    font-size: 1rem; }
+
 /**
  * Application theme
  */
@@ -3327,11 +3332,15 @@ input[type="button"].btn-block {
   margin: 0;
   padding: 0; }
 
+html {
+  font-size: 100%; }
+
 h2 {
   line-height: 1.5em;
   padding: .3em 0; }
 
 body {
+  color: #0a0a0a;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Lato", sans-serif;
   background-color: #ebf0f2; }
@@ -3360,3 +3369,57 @@ body {
   .field-list .field-list-item > .period {
     margin-top: 1em;
     list-style-type: none; }
+
+.table-wrap > table {
+  width: 100%; }
+  .table-wrap > table th,
+  .table-wrap > table td {
+    padding: 0.5rem 1rem; }
+
+.table-wrap .table-header {
+  background-color: #f2f2f2;
+  border: 1px solid #e0e0e0; }
+
+.table-wrap .t-row {
+  background-color: #fff;
+  border: 1px solid #ededed; }
+  .table-wrap .t-row > td {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem; }
+
+/**
+ * Copied
+ * =============================
+ */
+.tab-bar-wrap {
+  background-color: #fff; }
+
+.tab-bar {
+  position: relative;
+  height: 60px; }
+  .tab-bar .tabs {
+    position: absolute;
+    left: 0;
+    bottom: 0; }
+    .tab-bar .tabs .tab {
+      display: inline-block;
+      padding: 8px 0;
+      font-size: 18px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid transparent; }
+      .tab-bar .tabs .tab + .tab {
+        margin-left: 1em; }
+    .tab-bar .tabs .tab-off {
+      color: #aaa; }
+    .tab-bar .tabs .tab-on {
+      border-color: #4abee2; }
+  .tab-bar .add-btn {
+    position: absolute;
+    top: 13px;
+    right: 0; }
+
+/**
+ * =============================
+ * End Copied
+ */

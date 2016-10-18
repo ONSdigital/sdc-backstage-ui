@@ -1,6 +1,6 @@
 var assign = require('object-assign');
 
-var surveysReducer = function (state, action) {
+function surveysReducer (state, action) {
 
 	var initialState = function () {
 			return {
@@ -26,6 +26,6 @@ var surveysReducer = function (state, action) {
 			return assign({}, state);
 	}
 
-};
+}
 
 module.exports = surveysReducer;

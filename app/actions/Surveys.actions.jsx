@@ -1,4 +1,4 @@
-var surveyRegistry = require('../services/sdc-survey-registry.jsx');
+var surveyRegistryService = require('../services/sdc-survey-registry.jsx');
 
 var REQUEST_SURVEYS = 'REQUEST_SURVEYS',
 	RECEIVE_SURVEYS = 'RECEIVE_SURVEYS';
@@ -24,7 +24,7 @@ function fetchSurveys () {
 
 	return function (dispatch) {
 
-		return surveyRegistry.getSurveys()
+		return surveyRegistryService.getSurveys()
 			.then(function (data) {
 				dispatch(receiveSurveys(data));
 				return data;

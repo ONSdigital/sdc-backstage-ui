@@ -1,5 +1,9 @@
+var collectionExercisesService = require('../services/sdc-business-response-management.jsx');
+
 var ADD = 'ADD_COLLECTION_EXERCISE',
-    CHANGE_PERIOD = 'ADD_COLLECTION_EXERCISE_CHANGE_PERIOD';
+    CHANGE_PERIOD = 'ADD_COLLECTION_EXERCISE_CHANGE_PERIOD',
+    RECEIVE_ALL = 'RECEIVE_ALL_COLLECTION_EXERCISES',
+    REQUEST_ALL = 'REQUEST_ALL_COLLECTION_EXERCISES';
 
 function addCollectionExercises () {
 
@@ -19,9 +23,47 @@ function changeCollectionExercisesPeriod (type) {
 
 }
 
+function requestAllCollectionExercises () {
+
+    return {
+        type: REQUEST_ALL
+    };
+}
+
+function receiveAllCollectionExercises (collectionExerciseList) {
+
+    return {
+        type: RECEIVE_ALL,
+        collectionExercises: collectionExerciseList.collection_exercises
+    };
+
+}
+
+function fetchAllCollectionExercises () {
+
+    return function (dispatch) {
+
+        return collectionExercisesService.collectionExercises.getAll()
+            .then(function (data) {
+                dispatch(receiveAllCollectionExercises(data));
+                return data;
+            });
+    }
+
+}
+
 module.exports = {
 
     ADD: addCollectionExercises,
-    TOGGLE_PERIOD: changeCollectionExercisesPeriod
+
+    /**
+     * Specific to Add collection exercise,
+     * should this be here?
+     */
+    TOGGLE_PERIOD: changeCollectionExercisesPeriod,
+
+    REQUEST_ALL: requestAllCollectionExercises,
+    RECEIVE_ALL: receiveAllCollectionExercises,
+    FETCH_ALL: fetchAllCollectionExercises
 
 };
