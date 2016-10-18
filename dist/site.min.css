@@ -3309,7 +3309,8 @@ input[type="button"].btn-block {
 .add-collection-exercises-component {
   max-width: 450px;
   margin: 0 auto;
-  margin-top: 50px; }
+  margin-top: 50px;
+  padding-bottom: 50px; }
   .add-collection-exercises-component > h2 {
     padding: 20px;
     text-align: center;
@@ -3346,3 +3347,16 @@ body {
   list-style-type: none; }
   .details-list > .details-list-item > .detail {
     font-weight: normal; }
+
+.select-dropdown {
+  max-width: 100%; }
+
+.field-list {
+  list-style-type: none; }
+  .field-list .field-list-item + .field-list-item {
+    margin-top: 2em; }
+  .field-list .field-list-item > .title {
+    margin-top: 0; }
+  .field-list .field-list-item > .period {
+    margin-top: 1em;
+    list-style-type: none; }

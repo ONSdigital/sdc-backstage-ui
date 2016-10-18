@@ -36,3 +36,27 @@ body {
         }
     }
 }
+
+.select-dropdown {
+    max-width : 100%;
+}
+
+.field-list {
+    list-style-type : none;
+
+    .field-list-item {
+
+        + .field-list-item {
+            margin-top : 2em;
+        }
+
+        > .title {
+            margin-top : 0;
+        }
+
+        > .period {
+            margin-top : 1em;
+            list-style-type : none;
+        }
+    }
+}

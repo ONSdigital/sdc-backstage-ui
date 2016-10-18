@@ -6,11 +6,11 @@ var AddCollectionExercisesComponent = React.createClass({
 
 });
 
-
 AddCollectionExercisesComponent.propTypes = {
+    onSurveyListOptionChange: React.PropTypes.func.isRequired,
     onSaveClicked: React.PropTypes.func.isRequired,
-    surveyList: React.PropTypes.array
+    surveyList: React.PropTypes.array,
+    selectedReportingPeriodOptions: React.PropTypes.array
 };
-
 
 module.exports = AddCollectionExercisesComponent;

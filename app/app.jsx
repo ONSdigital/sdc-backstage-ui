@@ -12,45 +12,30 @@ var Provider = require('react-redux').Provider,
 
     syncHistoryWithStore = require('react-router-redux').syncHistoryWithStore,
     routerReducer = require('react-router-redux').routerReducer,
+    routerMiddleware = require('react-router-redux').routerMiddleware,
 
     render = require('react-dom').render,
 
     AddCollectionExercisesContainer = require('./containers/AddCollectionExercisesContainer.jsx'),
-    PageTitleComponent = require('./components/shared/PageTitle/PageTitle.comp.jsx'),
 
-    surveyActions = require('./actions/Surveys.actions.jsx');
+    /**
+     * Actions
+     */
+    surveyActions = require('./actions/Surveys.actions.jsx'),
+    locationActions = require('./actions/Location.actions.jsx'),
 
+    /**
+     * Reducers
+     */
+    uiReducer = require('./reducers/ui.jsx'),
+    surveysReducer = require('./reducers/surveys.jsx'),
+    userReducer = require('./reducers/user.jsx'),
 
-var MainLayout = React.createClass({
-
-    render: function () {
-        return (
-            <section>
-                <PageTitleComponent title="ONS Surveys Manager" />
-                <section className="container">
-                    {this.props.children}
-                </section>
-            </section>
-        );
-    }
-
-});
-
-var NoMatchLayout = React.createClass({
-
-    render: function () {
-        return (
-            <section>
-                <PageTitleComponent title="Oops.." />
-                <section className="container">
-                    <h2>Sorry,</h2>
-                    <h3>We were unable to find the page you were looking for.</h3>
-                </section>
-            </section>
-        );
-    }
-
-});
+    /**
+     * Components
+     */
+    MainLayout = require('./components/shared/layout/MainLayout.jsx'),
+    NoMatchLayout = require('./components/shared/layout/NoMatchLayout.jsx');
 
 var pageState = {
 
@@ -151,68 +136,6 @@ var pageState = {
         }
     };
 
-var userReducer = function (state, action) {
-
-    var initialState = function () {
-            return {};
-        },
-        newState = [];
-
-    state = state || initialState();
-
-    console.log('State: ', state, 'Action: ', action);
-
-    switch(action.type) {
-        case 'TEST_ACTION':
-            return assign({}, state, {
-                id: 123,
-                someProperty: 'Some Value'
-            });
-    }
-
-    return assign({}, state);
-
-};
-
-var surveysReducer = function (state, action) {
-
-    var initialState = function () {
-            return {
-                isFecthing: false,
-                response: {}
-            };
-        },
-        newState = [];
-
-    /**
-     * Create initial user object
-     */
-    if (state === undefined) {
-        state = [];
-    }
-    state = state || initialState();
-
-
-    switch (action.type) {
-        case 'REQUEST_SURVEYS':
-            return assign({}, state, {
-                isFetching: true
-            });
-        case 'RECEIVE_SURVEYS':
-            return assign({}, state, {
-                isFetching: false,
-                items: action.surveys
-            });
-        default:
-            return state;
-    }
-
-};
-
-
-var loggerMiddleware = createLogger();
-
-
 /**
  * Application store
  */
@@ -242,17 +165,24 @@ var appStore = Redux.createStore(
         // End temp =====
 
 
+        ui: uiReducer,
+
         routing: routerReducer
     }),
 
     Redux.applyMiddleware(
-        thunkMiddleware
+        thunkMiddleware,
+        createLogger(),
+        routerMiddleware(browserHistory)
     )
 );
 
+
 appStore.dispatch(surveyActions.FETCH()).then(function (res) {
-    console.log('Response from ajax request', arguments);
+    //console.log('Response from ajax request', arguments);
 });
+
+locationActions.setStore(appStore);
 
 
 
