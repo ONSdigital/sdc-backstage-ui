@@ -3,13 +3,23 @@ var collectionExercisesService = require('../services/sdc-business-response-mana
 var ADD = 'ADD_COLLECTION_EXERCISE',
     CHANGE_PERIOD = 'ADD_COLLECTION_EXERCISE_CHANGE_PERIOD',
     RECEIVE_ALL = 'RECEIVE_ALL_COLLECTION_EXERCISES',
-    REQUEST_ALL = 'REQUEST_ALL_COLLECTION_EXERCISES';
+    REQUEST_ALL = 'REQUEST_ALL_COLLECTION_EXERCISES',
+    FILTER = 'FILTER_COLLECTION_EXERCISE';
 
 function addCollectionExercises () {
 
     return {
         type: ADD,
         text: 'Add collection exercise'
+    };
+
+}
+
+function filterCollectionExerciseList (status) {
+
+    return {
+        type: FILTER,
+        status: status
     };
 
 }
@@ -28,6 +38,7 @@ function requestAllCollectionExercises () {
     return {
         type: REQUEST_ALL
     };
+
 }
 
 function receiveAllCollectionExercises (collectionExerciseList) {
@@ -64,6 +75,8 @@ module.exports = {
 
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,
-    FETCH_ALL: fetchAllCollectionExercises
+    FETCH_ALL: fetchAllCollectionExercises,
+
+    UI_FILTER: filterCollectionExerciseList
 
 };

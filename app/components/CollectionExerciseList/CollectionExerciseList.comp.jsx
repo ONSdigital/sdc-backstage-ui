@@ -7,7 +7,8 @@ var CollectionExerciseList = React.createClass({
 });
 
 CollectionExerciseList.propTypes = {
-	collectionExercises: React.PropTypes.array
+	collectionExercises: React.PropTypes.array,
+	onCollectionFilterClick: React.PropTypes.func.isRequired
 };
 
 module.exports = CollectionExerciseList;

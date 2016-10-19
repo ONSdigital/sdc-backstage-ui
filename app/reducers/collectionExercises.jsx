@@ -16,7 +16,7 @@ function collectionExercisesReducer (state, action) {
 			return assign({}, state, {
 				isFetching: false,
 				items: action.collectionExercises
-			})
+			});
 		default:
 			return assign({}, state);
 	}
