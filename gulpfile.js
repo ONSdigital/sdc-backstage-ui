@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
     static = require('node-static'),
+    argv = require('yargs').argv,
 
     config = {
         jsSrc: './app/**/*.js',
@@ -16,6 +17,9 @@ var gulp = require('gulp'),
         outputDir: './dist'
     };
 
+console.log(argv);
+
+var portNumber = argv.port || 8080;
 
 /**
  * Compile tasks
@@ -64,6 +68,9 @@ gulp.task('watch:compile:jsx', ['compile:jsx'], () => {
 });
 
 
+
+
+
 /**
  * Run tasks
  */
@@ -89,12 +96,35 @@ gulp.task('dev', [
 
             });
         }).resume();
-    }).listen(8181);
+    }).listen(portNumber);
 
 });
 
 
 
+
+gulp.task('test', [
+    'compile:sass',
+    'compile:jsx'
+], () => {
+    var fileServer = new static.Server('./');
+
+    require('http').createServer(function (request, response) {
+        request.addListener('end', function () {
+            //
+            // Serve files!
+            //
+            fileServer.serve(request, response, function (e, res) {
+
+                if (e && (e.status === 404)) {
+                    fileServer.serveFile('/index.html', 404, {}, request, response);
+                }
+
+            });
+        }).resume();
+    }).listen(portNumber);
+
+});
 
 
 

@@ -12,7 +12,7 @@ module.exports = function () {
 						<ul className="details-list">
 							<li className="row">
 								<label className="col-xs-12 col-sm-3 title">Status:</label>
-								<strong className="col-xs-12 col-sm-9 detail">[John Smith]</strong>
+								<strong className="col-xs-12 col-sm-9 detail">[Scheduled]</strong>
 							</li>
 						</ul>
 					</div>

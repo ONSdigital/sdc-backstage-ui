@@ -20,7 +20,8 @@
     "reactify": "^1.1.1",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^6.2.0"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",

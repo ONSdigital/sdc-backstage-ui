@@ -60,7 +60,7 @@ function fetchAllCollectionExercises () {
                 return data;
             });
     }
-git 
+
 }
 
 module.exports = {
