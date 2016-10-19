@@ -100,11 +100,23 @@ var pageState = {
         }
     };
 
-appStore.dispatch(surveyActions.REQUEST());
-appStore.dispatch(surveyActions.FETCH());
+/**
+ * Get config, fetch data
+ */
+jQuery.ajax('/config.json',
+    {
+        dataType: "json"
+    }
+).then(function (res) {
+    window.config = window.config || {};
+    window.config.app = res.app;
 
-appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
-appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+    appStore.dispatch(surveyActions.REQUEST());
+    appStore.dispatch(surveyActions.FETCH());
+
+    appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
+    appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+});
 
 locationActions.setStore(appStore);
 

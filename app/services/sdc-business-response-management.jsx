@@ -1,6 +1,6 @@
-var url = 'https://test-sdc-business-response-management.cfapps.io';
-
 function getAllCollectionExercises () {
+
+	var url = window.config.app.endpoints["sdc-business-response-management"];
 
 	return jQuery.ajax(url + '/collection-exercises',
 		{

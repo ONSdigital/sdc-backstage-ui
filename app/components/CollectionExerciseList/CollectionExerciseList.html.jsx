@@ -6,6 +6,8 @@ module.exports = function () {
 		return 'tab ' + (status === this.props.activeFilter ? 'tab-on' : 'tab-off');
 	}.bind(this);
 
+	var serveyReference = 1;
+
 	return (
 		<section className="collection-exercise-list-component">
 			<div className="tab-bar-wrap">
@@ -32,6 +34,7 @@ module.exports = function () {
 						<table>
 							<thead>
 								<tr className="table-header">
+									<th><strong>Survey Reference</strong></th>
 									<th><strong>Survey</strong></th>
 									<th><strong>Period</strong></th>
 								</tr>
@@ -48,6 +51,7 @@ module.exports = function () {
 									.map(function (item) {
 										return (
 											<tr key={item.id} className="t-row">
+												<td>00{serveyReference++}</td>
 												<td><Link to={'/collection-exercises/publish'}>{item["survey_title"]}</Link></td>
 												<td><span>{item["period"]}</span></td>
 											</tr>

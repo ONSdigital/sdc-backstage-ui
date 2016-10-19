@@ -1,6 +1,6 @@
-var url = 'https://sdc-survey-registry.herokuapp.com';
-
 function getSurveys () {
+
+	var url = window.config.app.endpoints["sdc-survey-registry"];
 
 	return jQuery.ajax(url,
 		{
