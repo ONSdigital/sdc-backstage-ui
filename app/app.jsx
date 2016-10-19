@@ -62,9 +62,7 @@ var pageState = {
 
             details: function () {
                 return (
-                    <div className="container">
-                        <CollectionExerciseDetailsContainer />
-                    </div>
+                    <CollectionExerciseDetailsContainer />
                 );
             },
 

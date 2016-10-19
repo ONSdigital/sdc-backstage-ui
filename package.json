@@ -9,16 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^13.1.0",
-    "node-static": "^0.7.9",
     "object-assign": "^4.1.0",
     "reactify": "^1.1.1",
     "redux-logger": "^2.7.0",
-    "redux-thunk": "^2.1.0",
-    "vinyl-source-stream": "^1.1.0",
-    "yargs": "^6.2.0"
+    "redux-thunk": "^2.1.0"
   },
   "dependencies": {
+    "browserify": "^13.1.0",
+    "node-static": "^0.7.9",
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
@@ -30,6 +28,8 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.6",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^6.2.0"
   }
 }
