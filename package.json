@@ -10,7 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "object-assign": "^4.1.0",
-    "reactify": "^1.1.1",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0"
   },
@@ -29,6 +28,7 @@
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.6",
     "redux": "^3.6.0",
+    "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^6.2.0"
   }
