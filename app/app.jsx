@@ -13,6 +13,7 @@ var Provider = require('react-redux').Provider,
      */
     AddCollectionExercisesContainer = require('./containers/AddCollectionExercisesContainer.jsx'),
     CollectionExerciseListContainer = require('./containers/CollectionExerciseListContainer.jsx'),
+    CollectionExerciseDetailsContainer = require('./components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx'),
 
     /**
      * Actions
@@ -44,6 +45,7 @@ var pageState = {
 
                     <h3>Collection Exercise</h3>
                     <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
+                    <p><Link className="btn btn-info btn-large" to={'/collection-exercises/details'}>View Collection Exercise Details</Link></p>
                 </div>
             );
         },
@@ -58,31 +60,10 @@ var pageState = {
                 );
             },
 
-            publish: function () {
+            details: function () {
                 return (
                     <div className="container">
-                        <h2>Collection Exercise</h2>
-                        <ul className="details-list">
-                            <li className="row details-list-item">
-                                <label className="col-xs-4 col-sm-3 title">Title:</label>
-                                <strong className="col-xs-8 col-sm-9 detail">Survey Name</strong>
-                            </li>
-                            <li className="row details-list-item">
-                                <label className="col-xs-4 col-sm-3 title">To start on:</label>
-                                <strong className="col-xs-8 col-sm-9 detail">1st December 2016</strong>
-                            </li>
-                            <li className="row details-list-item">
-                                <label className="col-xs-4 col-sm-3 title">To end on:</label>
-                                <strong className="col-xs-8 col-sm-9 detail">1st February 2017</strong>
-                            </li>
-                            <li className="row details-list-item">
-                                <label className="col-xs-4 col-sm-3 title">Created by:</label>
-                                <strong className="col-xs-8 col-sm-9 detail">John Smith</strong>
-                            </li>
-                        </ul>
-                        <div className="actions">
-                            <button className="btn btn-primary">Publish collection exercise</button>
-                        </div>
+                        <CollectionExerciseDetailsContainer />
                     </div>
                 );
             },
@@ -102,6 +83,7 @@ var pageState = {
 
 /**
  * Get config, fetch data
+ * Must be a better place to put this
  */
 jQuery.ajax('/config.json',
     {
@@ -116,6 +98,15 @@ jQuery.ajax('/config.json',
 
     appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
     appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+
+    if(res.env === 'dev') {
+        console.log('dev');
+        //document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+
+        jQuery(document).ready(function () {
+            //$(document).append('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+        });
+    }
 });
 
 locationActions.setStore(appStore);
@@ -132,7 +123,7 @@ jQuery(document).ready(function () {
                     <Route path="/" component={pageState.default} />
                     <Route path="collection-exercises" component={pageState.collectionExercise.list} />
                     <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
-                    <Route path="collection-exercises/publish" component={pageState.collectionExercise.publish} />
+                    <Route path="collection-exercises/details" component={pageState.collectionExercise.details} />
                 </Route>
                 <Route path="*" component={NoMatchLayout} />
             </Router>

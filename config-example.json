@@ -1,7 +1,8 @@
 {
+  "env": "dev",
   "app": {
     "endpoints": {
-      "sdc-business-response-management": "https://test-sdc-business-response-management.cfapps.io",
+      "sdc-business-response-management": "https://test-sdc-business-response-management.apps.onsdigital.uk",
       "sdc-survey-registry": "https://sdc-survey-registry.herokuapp.com"
     }
   }

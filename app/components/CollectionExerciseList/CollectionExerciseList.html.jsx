@@ -52,7 +52,7 @@ module.exports = function () {
 										return (
 											<tr key={item.id} className="t-row">
 												<td>00{serveyReference++}</td>
-												<td><Link to={'/collection-exercises/publish'}>{item["survey_title"]}</Link></td>
+												<td><Link to={'/collection-exercises/details'}>{item["survey_title"]}</Link></td>
 												<td><span>{item["period"]}</span></td>
 											</tr>
 										);
