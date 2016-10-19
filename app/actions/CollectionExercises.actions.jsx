@@ -45,7 +45,7 @@ function receiveAllCollectionExercises (collectionExerciseList) {
 
     return {
         type: RECEIVE_ALL,
-        collectionExercises: collectionExerciseList.collection_exercises
+        collectionExercises: collectionExerciseList
     };
 
 }
@@ -60,7 +60,7 @@ function fetchAllCollectionExercises () {
                 return data;
             });
     }
-
+git 
 }
 
 module.exports = {
