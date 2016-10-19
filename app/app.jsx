@@ -124,6 +124,7 @@ jQuery(document).ready(function () {
                     <Route path="collection-exercises" component={pageState.collectionExercise.list} />
                     <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
                     <Route path="collection-exercises/details" component={pageState.collectionExercise.details} />
+                    <Route path="collection-exercises/details/:id" component={pageState.collectionExercise.details} />
                 </Route>
                 <Route path="*" component={NoMatchLayout} />
             </Router>

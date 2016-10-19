@@ -10,11 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^13.1.0",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-react": "^3.1.0",
-    "gulp-sass": "^2.3.2",
     "node-static": "^0.7.9",
     "object-assign": "^4.1.0",
     "reactify": "^1.1.1",
@@ -25,6 +20,11 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-react": "^3.1.0",
+    "gulp-sass": "^2.3.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
