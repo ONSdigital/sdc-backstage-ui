@@ -23,10 +23,22 @@ function saveCollectionExercise (data) {
 	);
 }
 
+function getCollectionExercise (id) {
+
+	var url = window.config.app.endpoints["sdc-business-response-management"];
+
+	return jQuery.ajax(url + '/collection-exercises/'+id,
+		{
+			dataType: "json"
+		}
+	);
+
+}
+
 module.exports = {
 	collectionExercises: {
 		getAll: getAllCollectionExercises,
-		saveCollectionExercise: saveCollectionExercise
-
+		saveCollectionExercise: saveCollectionExercise,
+		get: getCollectionExercise
 	}
 };

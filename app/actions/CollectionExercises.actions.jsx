@@ -4,6 +4,7 @@ var ADD = 'ADD_COLLECTION_EXERCISE',
     CHANGE_PERIOD = 'ADD_COLLECTION_EXERCISE_CHANGE_PERIOD',
     RECEIVE_ALL = 'RECEIVE_ALL_COLLECTION_EXERCISES',
     REQUEST_ALL = 'REQUEST_ALL_COLLECTION_EXERCISES',
+    RECEIVE_SINGLE = 'REQUEST_COLLECTION_EXERCISE_DETAILS',
     FILTER = 'FILTER_COLLECTION_EXERCISE';
 
 function addCollectionExercises () {
@@ -45,10 +46,6 @@ function saveCollectionExercise (data) {
             });
     };
 
-/*    SAVE_COLLECTION_EXERCISE({
-        periods: [],
-        survey_title: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
-    }));*/
 }
 
 function requestAllCollectionExercises () {
@@ -81,6 +78,28 @@ function fetchAllCollectionExercises () {
 
 }
 
+function fetchCollectionExercise (id) {
+
+    return function (dispatch) {
+
+        return collectionExercisesService.collectionExercises.get(id)
+            .then(function (data) {
+                dispatch(receiveCollectionExercise(data));
+                return data;
+            });
+    }
+
+}
+
+function receiveCollectionExercise (collectionExercise) {
+
+    return {
+        type: RECEIVE_SINGLE,
+        collectionExercise: collectionExercise
+    };
+
+}
+
 module.exports = {
 
     ADD: addCollectionExercises,
@@ -94,6 +113,8 @@ module.exports = {
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,
     FETCH_ALL: fetchAllCollectionExercises,
+    
+    FETCH: fetchCollectionExercise,
 
     SAVE_COLLECTION_EXERCISE: saveCollectionExercise,
 

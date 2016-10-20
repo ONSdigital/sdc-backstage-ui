@@ -52,7 +52,7 @@ module.exports = function () {
 									.map(function (item) {
 										return (
 											<tr key={item.id} className="t-row">
-												<td>00{serveyReference++}</td>
+												<td>[00{serveyReference++}]</td>
 												<td><Link to={'/collection-exercises/details/'+item.id}>{item["survey_title"]}</Link></td>
 												<td><span>{item["period"]}</span></td>
 												<td><span>{item["state"]}</span></td>

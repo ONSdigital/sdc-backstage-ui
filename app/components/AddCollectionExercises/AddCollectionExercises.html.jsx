@@ -53,7 +53,7 @@ module.exports = function () {
                     {reportingUnitItem()}
                 </ul>
 
-                <input className="btn btn-primary btn-large" onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
+                <input disabled={!this.props.selectedReportingPeriodOptions.length ? 'disabled' : ''} className="btn btn-primary btn-large" onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
             </div>
 
         </section>

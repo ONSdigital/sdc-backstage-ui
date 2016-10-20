@@ -8,6 +8,7 @@ var uiReducer = function (state, action) {
 					add: {
 						selectedReportingPeriodType: ''
 					},
+					details: {},
 					list: {
 						activeFilter: ''
 					}
@@ -26,9 +27,14 @@ var uiReducer = function (state, action) {
 			return newState;
 		case 'RESET_ADD_COLLECTION_EXERCISE':
 			newState.collectionExercise.add.selectedReportingPeriodType = '';
+		case 'RESET_COLLECTION_EXERCISE_DETAILS':
+			newState.collectionExercise.details = {};
 			return newState;
 		case 'FILTER_COLLECTION_EXERCISE':
 			newState.collectionExercise.list.activeFilter = action.status;
+			return newState;
+		case 'REQUEST_COLLECTION_EXERCISE_DETAILS':
+			newState.collectionExercise.details = action.collectionExercise;
 			return newState;
 		default:
 			return newState;

@@ -13,7 +13,7 @@ var Provider = require('react-redux').Provider,
      */
     AddCollectionExercisesContainer = require('./containers/AddCollectionExercisesContainer.jsx'),
     CollectionExerciseListContainer = require('./containers/CollectionExerciseListContainer.jsx'),
-    CollectionExerciseDetailsContainer = require('./components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx'),
+    CollectionExerciseDetailsContainer = require('./containers/CollectionExerciseDetailsContainer.jsx'),
 
     /**
      * Actions
@@ -73,6 +73,9 @@ var pageState = {
         }
     };
 
+
+locationActions.setStore(appStore);
+
 /**
  * Get config, fetch data
  * Must be a better place to put this
@@ -99,29 +102,28 @@ jQuery.ajax('/config.json',
             //$(document).append('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
         });
     }
-});
 
-locationActions.setStore(appStore);
 
-/**
- * Boot
- */
-jQuery(document).ready(function () {
+    /**
+     * Boot
+     */
+    jQuery(document).ready(function () {
 
-    render(
-        <Provider store={appStore}>
-            <Router history={history}>
-                <Route component={MainLayout}>
-                    <Route path="/" component={pageState.default} />
-                    <Route path="collection-exercises" component={pageState.collectionExercise.list} />
-                    <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
-                    <Route path="collection-exercises/details" component={CollectionExerciseDetailsContainer} />
-                    <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
-                </Route>
-                <Route path="*" component={NoMatchLayout} />
-            </Router>
-        </Provider>,
+        render(
+            <Provider store={appStore}>
+                <Router history={history}>
+                    <Route component={MainLayout}>
+                        <Route path="/" component={pageState.default} />
+                        <Route path="collection-exercises" component={pageState.collectionExercise.list} />
+                        <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
+                        <Route path="collection-exercises/details" component={CollectionExerciseDetailsContainer} />
+                        <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
+                    </Route>
+                    <Route path="*" component={NoMatchLayout} />
+                </Router>
+            </Provider>,
 
-        document.getElementById('app'));
+            document.getElementById('app'));
 
+    });
 });
