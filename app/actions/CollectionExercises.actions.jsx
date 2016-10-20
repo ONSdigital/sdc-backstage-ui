@@ -33,6 +33,24 @@ function changeCollectionExercisesPeriod (type) {
 
 }
 
+function saveCollectionExercise (data) {
+
+
+    return function (dispatch) {
+
+        return collectionExercisesService.collectionExercises.saveCollectionExercise(data)
+            .then(function (data) {
+                //dispatch(savedCollectionExercise());
+                return data;
+            });
+    };
+
+/*    SAVE_COLLECTION_EXERCISE({
+        periods: [],
+        survey_title: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
+    }));*/
+}
+
 function requestAllCollectionExercises () {
 
     return {
@@ -76,6 +94,8 @@ module.exports = {
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,
     FETCH_ALL: fetchAllCollectionExercises,
+
+    SAVE_COLLECTION_EXERCISE: saveCollectionExercise,
 
     UI_FILTER: filterCollectionExerciseList
 

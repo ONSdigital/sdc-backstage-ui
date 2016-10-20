@@ -11,12 +11,12 @@ module.exports = function () {
                 {this.props.selectedReportingPeriodOptions.map(function (segment) {
 
                     return (
-                        <ul className="period" key={'period'+segment[0].value}>
+                        <ul id="period-selection" className="period" key={'period'+segment[0].value}>
                             {segment.map(function (period) {
                                 return (
                                     <li key={period.value}>
                                         <label key={period.value}>
-                                            <input type="checkbox" /> {period.title}
+                                            <input name="period" value={period.value} className="period-checkbox" type="checkbox" /> {period.title}
                                         </label>
                                     </li>
                                 );
@@ -41,7 +41,7 @@ module.exports = function () {
                 <ul className="field-list">
                     <li className="field-list-item">
                         <h4 className="title">Part of Survey</h4>
-                        <select className="select-dropdown" onChange={this.props.onSurveyListOptionChange}>
+                        <select id="add-collection-exercises-dropdown" className="select-dropdown" onChange={this.props.onSurveyListOptionChange}>
                             <option value="none">-</option>
                             {this.props.surveyList.map(function (item) {
                                 return (

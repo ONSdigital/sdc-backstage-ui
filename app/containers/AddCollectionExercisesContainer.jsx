@@ -1,6 +1,7 @@
 var Redux = require('react-redux'),
 
 	locationActions = require('../actions/Location.actions.jsx'),
+	appStore = require('../stores/backstage.store.jsx'),
     CollectionExercisesActions = require('../actions/CollectionExercises.actions.jsx'),
     AddCollectionExercisesComponent = require('../components/AddCollectionExercises/AddCollectionExercises.comp.jsx');
 
@@ -103,8 +104,24 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
     return {
         onSaveClicked: function () {
-            dispatch(CollectionExercisesActions.ADD());
-			locationActions.change('/collection-exercises');
+
+            var periods = [];
+
+			$('#period-selection').find('.period-checkbox:checked').each(function (i, el) {
+				periods.push($(el).attr('value'));
+			});
+
+			dispatch(CollectionExercisesActions.SAVE_COLLECTION_EXERCISE({
+				periods: periods,
+				survey_title: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
+			}))
+			.then(function () {
+				appStore.dispatch(CollectionExercisesActions.REQUEST_ALL());
+				appStore.dispatch(CollectionExercisesActions.FETCH_ALL())
+					.then(function () {
+						locationActions.change('/collection-exercises');
+					});
+			});
         },
 
 		onSurveyListOptionChange: function (e) {
