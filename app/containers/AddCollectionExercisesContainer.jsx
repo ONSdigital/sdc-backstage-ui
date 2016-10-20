@@ -3,6 +3,7 @@ var Redux = require('react-redux'),
 	locationActions = require('../actions/Location.actions.jsx'),
 	appStore = require('../stores/backstage.store.jsx'),
     CollectionExercisesActions = require('../actions/CollectionExercises.actions.jsx'),
+	uiActions = require('../actions/UI.actions.jsx'),
     AddCollectionExercisesComponent = require('../components/AddCollectionExercises/AddCollectionExercises.comp.jsx');
 
 
@@ -120,6 +121,7 @@ function mapDispatchToProps (dispatch) {
 				appStore.dispatch(CollectionExercisesActions.FETCH_ALL())
 					.then(function () {
 						locationActions.change('/collection-exercises');
+						dispatch(uiActions.RESET_ADD_COLLECTION_EXERCISE());
 					});
 			});
         },

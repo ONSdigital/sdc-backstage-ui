@@ -24,6 +24,9 @@ var uiReducer = function (state, action) {
 		case 'ADD_COLLECTION_EXERCISE_CHANGE_PERIOD':
 			newState.collectionExercise.add.selectedReportingPeriodType = action.periodType;
 			return newState;
+		case 'RESET_ADD_COLLECTION_EXERCISE':
+			newState.collectionExercise.add.selectedReportingPeriodType = '';
+			return newState;
 		case 'FILTER_COLLECTION_EXERCISE':
 			newState.collectionExercise.list.activeFilter = action.status;
 			return newState;
