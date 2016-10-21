@@ -22,7 +22,7 @@ module.exports = function () {
 							<ul className="details-list">
 								<li className="row">
 									<label className="col-xs-6 title">Status:</label>
-									<strong className="col-xs-6 detail">{this.props.details.id}</strong>
+									<strong className="col-xs-6 detail">{this.props.details.state}</strong>
 								</li>
 								<li className="row">
 									<label className="col-xs-6 title">Number of forms:</label>
@@ -41,9 +41,8 @@ module.exports = function () {
 										<h4>Actions</h4>
 										<div className="btn-toolbar" role="toolbar" aria-label="...">
 											<div className="btn-group" role="group" aria-label="...">
-												<button className="btn btn-info">[Upload and save]</button>
 												<button className="btn btn-info">[Publish]</button>
-												<button className="btn btn-info">[Download]</button>
+												<button className="btn btn-info">[Download?]</button>
 											</div>
 										</div>
 									</li>
@@ -67,6 +66,11 @@ module.exports = function () {
 							</ul>
 						</div>
 						<div className="col-xs-12 col-sm-6">
+							<h4>Current Samples</h4>
+							<ul className="details-list">
+							<button className="btn btn-info">[Upload and save]</button>
+							</ul>
+
 							<h4>Question Sets</h4>
 							<ul className="details-list">
 								<li className="row details-list-item">
