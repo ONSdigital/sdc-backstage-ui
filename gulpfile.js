@@ -103,10 +103,7 @@ gulp.task('dev', [
 
 
 
-gulp.task('test', [
-    'compile:sass',
-    'compile:jsx'
-], () => {
+gulp.task('test', () => {
     var fileServer = new static.Server('./');
 
     require('http').createServer(function (request, response) {
