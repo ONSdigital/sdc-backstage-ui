@@ -48,7 +48,7 @@ module.exports = function () {
 										<h4>Actions</h4>
 										<div className="btn-toolbar" role="toolbar" aria-label="...">
 											<div className="btn-group" role="group" aria-label="...">
-												<button onClick={this.props.onPublishedClicked} className="btn btn-info">[Publish]</button>
+												<button onClick={this.props.onPublishedClicked} className="btn btn-info">Publish</button>
 												<button className="btn btn-info">[Download?]</button>
 											</div>
 										</div>

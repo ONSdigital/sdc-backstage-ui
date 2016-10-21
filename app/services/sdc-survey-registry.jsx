@@ -6,7 +6,14 @@ function getSurveys () {
 		{
 			dataType: "json"
 		}
-	);
+	)
+
+	/**
+	 * Hack - registry is returning duplicate objects
+	 */
+	.then(function (res) {
+		return jQuery.unique(res);
+	});
 }
 
 module.exports = {
