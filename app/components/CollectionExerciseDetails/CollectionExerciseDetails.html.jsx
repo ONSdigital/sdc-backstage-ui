@@ -9,6 +9,17 @@ module.exports = function () {
 	return (
 		<div className="container">
 			<section className="collection-exercise-details-component">
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
+						<Link to={'/'}>Back to start</Link>
+					</li>
+					<li className="breadcrumb-item">
+						<Link to={'/collection-exercises'}>Collection Exercises</Link>
+					</li>
+					<li className="breadcrumb-item active">
+						<span>{this.props.details.survey_title}</span>
+					</li>
+				</ol>
 
 				<div className="page-header">
 					<h2>Collection Exercise</h2>
@@ -95,7 +106,7 @@ module.exports = function () {
 							</ul>
 							<ul className="details-list">
 								<li className="details-list-item">
-									<button onClick={this.props.onSamplesUploadClicked} className="btn btn-info">[Upload and save]</button>
+									<button onClick={this.props.onSamplesUploadClicked} className="btn btn-info">Upload and Save</button>
 								</li>
 							</ul>
 

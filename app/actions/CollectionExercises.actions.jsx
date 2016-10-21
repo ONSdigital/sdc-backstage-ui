@@ -105,6 +105,20 @@ function uploadCollectionExerciseSample (id, formData) {
 
 }
 
+function publishCollectionExercise (id) {
+
+    return function (dispatch) {
+
+        return collectionExercisesService.collectionExercises.publish(id)
+            .then(function (data) {
+                dispatch(receiveCollectionExercise(data));
+                return data;
+            });
+
+    };
+
+}
+
 function receiveCollectionExercise (collectionExercise) {
 
     return {
@@ -132,6 +146,7 @@ module.exports = {
 
     SAVE_COLLECTION_EXERCISE: saveCollectionExercise,
     UPLOAD_COLLECTION_EXERCISE_SAMPLE: uploadCollectionExerciseSample,
+    PUBLISH_COLLECTION_EXERCISE: publishCollectionExercise,
 
     UI_FILTER: filterCollectionExerciseList
 

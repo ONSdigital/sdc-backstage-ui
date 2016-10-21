@@ -28,7 +28,7 @@ function mapStateToProps (state, ownProps) {
 function mapDispatchToProps (dispatch, ownProps) {
 	return {
 		onPublishedClicked: function () {
-			console.log('publish');
+			dispatch(CollectionExercisesActions.PUBLISH_COLLECTION_EXERCISE(ownProps.params.id));
 		},
 
 		onSamplesUploadClicked: function () {

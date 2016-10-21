@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Bootstrap
  */
@@ -3227,12 +3228,26 @@ input[type="button"].btn-block {
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
 
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px; }
+  .breadcrumb > li {
+    display: inline-block; }
+    .breadcrumb > li + li:before {
+      content: "/ ";
+      padding: 0 5px;
+      color: #ccc; }
+  .breadcrumb > .active {
+    color: #777777; }
+
 /*@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/navs";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
-@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/pager";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/labels";
@@ -3498,7 +3513,6 @@ input[type="button"].btn-block {
       font-size: 1rem; }
 
 .collection-exercise-details-component {
-  margin-top: 30px;
   padding-bottom: 50px; }
   .collection-exercise-details-component > h2 {
     padding: 20px; }
@@ -3527,6 +3541,7 @@ body {
   background-color: #ebf0f2; }
 
 .page-header {
+  margin-top: 0;
   margin-bottom: 0; }
 
 .page-title-container {
@@ -3575,6 +3590,10 @@ body {
   .table-wrap .t-row > td {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem; }
+
+.breadcrumb {
+  margin-top: .5em;
+  background-color: #fff; }
 
 /**
  * Copied

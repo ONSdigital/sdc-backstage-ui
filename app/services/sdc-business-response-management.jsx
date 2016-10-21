@@ -51,11 +51,27 @@ function uploadCollectionExerciseSample (opts) {
 
 }
 
+function publishCollectionExercise (id) {
+
+	var url = window.config.app.endpoints["sdc-business-response-management"];
+
+	return jQuery.ajax(url + '/collection-exercises/'+id,
+		{
+			method: "PUT",
+			data: JSON.stringify({ "action": "publish" }),
+			dataType: "json",
+			contentType: "application/json"
+		}
+	);
+
+}
+
 module.exports = {
 	collectionExercises: {
 		getAll: getAllCollectionExercises,
 		saveCollectionExercise: saveCollectionExercise,
 		get: getCollectionExercise,
-		uploadSample: uploadCollectionExerciseSample
+		uploadSample: uploadCollectionExerciseSample,
+		publish: publishCollectionExercise
 	}
 };
