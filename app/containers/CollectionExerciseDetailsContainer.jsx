@@ -10,14 +10,14 @@ var Redux = require('react-redux'),
 /**
  * Hack - stop multiple calls from reload component state
  */
-var currentIndex = -1;
+var currentId = -1;
 
 function mapStateToProps (state, ownProps) {
 
-	if (currentIndex != ownProps.params.id) {
+	if (currentId != ownProps.params.id) {
 		appStore.dispatch(uiActions.RESET_COLLECTION_EXERCISE_DETAILS());
 		appStore.dispatch(CollectionExercisesActions.FETCH(ownProps.params.id));
-		currentIndex = ownProps.params.id;
+		currentId = ownProps.params.id;
 	}
 
 	return {
@@ -25,9 +25,18 @@ function mapStateToProps (state, ownProps) {
 	};
 }
 
-function mapDispatchToProps () {
+function mapDispatchToProps (dispatch, ownProps) {
 	return {
+		onPublishedClicked: function () {
+			console.log('publish');
+		},
 
+		onSamplesUploadClicked: function () {
+			dispatch(CollectionExercisesActions.UPLOAD_COLLECTION_EXERCISE_SAMPLE({
+				collectionExerciseId: ownProps.params.id,
+				formData: new FormData($('#samples-form')[0])
+			}));
+		}
 	};
 }
 

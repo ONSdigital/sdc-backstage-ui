@@ -24,14 +24,10 @@ module.exports = function () {
 									<label className="col-xs-6 title">Status:</label>
 									<strong className="col-xs-6 detail">{this.props.details.state}</strong>
 								</li>
-								<li className="row">
+								{/*<li className="row">
 									<label className="col-xs-6 title">Number of forms:</label>
 									<strong className="col-xs-6">[form count]</strong>
-								</li>
-								<li className="row">
-									<label className="col-xs-6 title">Number of RU's:</label>
-									<strong className="col-xs-6 detail">[RU count]</strong>
-								</li>
+								</li>*/}
 							</ul>
 						</div>
 						<div className="col-xs-12 col-sm-6">
@@ -41,7 +37,7 @@ module.exports = function () {
 										<h4>Actions</h4>
 										<div className="btn-toolbar" role="toolbar" aria-label="...">
 											<div className="btn-group" role="group" aria-label="...">
-												<button className="btn btn-info">[Publish]</button>
+												<button onClick={this.props.onPublishedClicked} className="btn btn-info">[Publish]</button>
 												<button className="btn btn-info">[Download?]</button>
 											</div>
 										</div>
@@ -68,10 +64,42 @@ module.exports = function () {
 						<div className="col-xs-12 col-sm-6">
 							<h4>Current Samples</h4>
 							<ul className="details-list">
-							<button className="btn btn-info">[Upload and save]</button>
+								<li className="row details-list-item">
+									<strong className="col-xs-4 title">RU Reference:</strong>
+									<strong className="col-xs-4 title">Business Name</strong>
+									<strong className="col-xs-4 title">Form Type</strong>
+								</li>
+								{this.props.details.samples.map(function (item) {
+									return (
+										<li key={item.id} className="row details-list-item">
+											<strong className="col-xs-4 detail">{item['reporting_unit_ref']}:</strong>
+											<strong className="col-xs-4 detail">{item['business_name']}</strong>
+											<strong className="col-xs-4 detail">{item['form_type']}</strong>
+										</li>
+									);
+								})}
 							</ul>
 
-							<h4>Question Sets</h4>
+							<ul className="details-list">
+								<li className="row details-list-item">
+									<label className="col-xs-4 title">Number of RU's:</label>
+									<strong className="col-xs-8 detail">[RU count]</strong>
+								</li>
+							</ul>
+							<ul className="details-list">
+								<li className="details-list-item">
+									<form id="samples-form">
+										<input name="samples_csv_file" accept=".csv" type="file" />
+									</form>
+								</li>
+							</ul>
+							<ul className="details-list">
+								<li className="details-list-item">
+									<button onClick={this.props.onSamplesUploadClicked} className="btn btn-info">[Upload and save]</button>
+								</li>
+							</ul>
+
+							<h4 className="fade">Question Sets</h4>
 							<ul className="details-list">
 								<li className="row details-list-item">
 									<label className="col-xs-12 col-sm-6 title">[Subject]:</label>

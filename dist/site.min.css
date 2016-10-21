@@ -3540,8 +3540,10 @@ body {
   list-style-type: none; }
   .details-list > .details-list-item > label {
     margin-top: 5px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    vertical-align: top; }
   .details-list > .details-list-item > .detail {
+    margin-top: 5px;
     font-weight: normal; }
 
 .select-dropdown {

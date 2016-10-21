@@ -45,7 +45,6 @@ var pageState = {
 
                     <h3>Collection Exercise</h3>
                     <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
-                    <p><Link className="btn btn-info btn-large" to={'/collection-exercises/details'}>View Collection Exercise Details</Link></p>
                 </div>
             );
         },
@@ -116,7 +115,6 @@ jQuery.ajax('/config.json',
                         <Route path="/" component={pageState.default} />
                         <Route path="collection-exercises" component={pageState.collectionExercise.list} />
                         <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
-                        <Route path="collection-exercises/details" component={CollectionExerciseDetailsContainer} />
                         <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
                     </Route>
                     <Route path="*" component={NoMatchLayout} />

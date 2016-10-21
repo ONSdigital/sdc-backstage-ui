@@ -7,7 +7,9 @@ var CollectionExerciseDetails = React.createClass({
 });
 
 CollectionExerciseDetails.propTypes = {
-	details: React.PropTypes.object
+	details: React.PropTypes.object,
+	onPublishedClicked: React.PropTypes.func.isRequired,
+	onSamplesUploadClicked: React.PropTypes.func.isRequired
 };
 
 module.exports = CollectionExerciseDetails;

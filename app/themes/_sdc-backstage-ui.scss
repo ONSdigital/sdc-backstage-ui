@@ -43,9 +43,11 @@ body {
         > label {
             margin-top : 5px;
             margin-bottom : 0;
+            vertical-align : top;
         }
 
         > .detail {
+            margin-top : 5px;
             font-weight : normal;
         }
     }
