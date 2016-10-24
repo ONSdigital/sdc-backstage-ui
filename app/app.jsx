@@ -31,7 +31,14 @@ var Provider = require('react-redux').Provider,
     /**
      * Store
      */
-    appStore = require('./stores/backstage.store.jsx');
+    appStore = require('./stores/backstage.store.jsx'),
+
+
+    /**
+     * Fake
+     */
+    FakeCollectionExerciseDetailsContainer_Scheduled = require('../fake/containers/CollectionExerciseDetailsContainerStates/scheduled.jsx'),
+    FakeCollectionExerciseDetailsContainer_ReadyForSample = require('../fake/containers/CollectionExerciseDetailsContainerStates/ready-for-sample.jsx');
 
 
 var history = syncHistoryWithStore(browserHistory, appStore);
@@ -43,8 +50,13 @@ var pageState = {
                 <div className="container">
                     <h2>Start Page (temp)</h2>
 
-                    <h3>Collection Exercise</h3>
+                    <h3>API</h3>
                     <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
+
+                    <h3>UI</h3>
+                    <h4>Collection Exercise States</h4>
+                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
+                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/ready-for-sample'}>Ready for sample</Link></p>
                 </div>
             );
         },
@@ -75,6 +87,7 @@ var pageState = {
 
 locationActions.setStore(appStore);
 
+
 /**
  * Get config, fetch data
  * Must be a better place to put this
@@ -88,10 +101,11 @@ jQuery.ajax('/config.json',
     window.config.app = res.app;
 
     appStore.dispatch(surveyActions.REQUEST());
-    appStore.dispatch(surveyActions.FETCH());
-
-    appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
-    appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+    appStore.dispatch(surveyActions.FETCH())
+        .then(function () {
+            appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
+            appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+        });
 
     if(res.env === 'dev') {
         console.log('dev');
@@ -113,9 +127,19 @@ jQuery.ajax('/config.json',
                 <Router history={history}>
                     <Route component={MainLayout}>
                         <Route path="/" component={pageState.default} />
+
+                        /**
+                         * API
+                         */
                         <Route path="collection-exercises" component={pageState.collectionExercise.list} />
                         <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
                         <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
+
+                        /**
+                         * UI
+                         */
+                        <Route path="ui/collection-exercise/scheduled" component={FakeCollectionExerciseDetailsContainer_Scheduled} />
+                        <Route path="ui/collection-exercise/ready-for-sample" component={FakeCollectionExerciseDetailsContainer_ReadyForSample} />
                     </Route>
                     <Route path="*" component={NoMatchLayout} />
                 </Router>

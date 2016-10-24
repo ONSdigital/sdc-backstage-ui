@@ -8,7 +8,10 @@ var uiReducer = function (state, action) {
 					add: {
 						selectedReportingPeriodType: ''
 					},
-					details: {},
+					details: {
+						key_dates: [],
+						samples: []
+					},
 					list: {
 						activeFilter: ''
 					}

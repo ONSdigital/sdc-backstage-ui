@@ -37,7 +37,7 @@ module.exports = function () {
 									<th><strong>Survey Reference</strong></th>
 									<th><strong>Survey</strong></th>
 									<th><strong>Period</strong></th>
-									<th><strong>State</strong></th>
+									<th><strong>Status</strong></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -53,7 +53,7 @@ module.exports = function () {
 										return (
 											<tr key={item.id} className="t-row">
 												<td>[00{serveyReference++}]</td>
-												<td><Link to={'/collection-exercises/details/'+item.id}>{item["survey_title"]}</Link></td>
+												<td><Link to={'/collection-exercises/details/'+item.id}>{item.survey.name}</Link></td>
 												<td><span>{item["period"]}</span></td>
 												<td><span>{item["state"]}</span></td>
 											</tr>

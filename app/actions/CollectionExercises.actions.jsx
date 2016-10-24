@@ -4,6 +4,7 @@ var ADD = 'ADD_COLLECTION_EXERCISE',
     CHANGE_PERIOD = 'ADD_COLLECTION_EXERCISE_CHANGE_PERIOD',
     RECEIVE_ALL = 'RECEIVE_ALL_COLLECTION_EXERCISES',
     REQUEST_ALL = 'REQUEST_ALL_COLLECTION_EXERCISES',
+    SAVED = 'SAVED_COLLECTION_EXERCISE',
     RECEIVE_SINGLE = 'REQUEST_COLLECTION_EXERCISE_DETAILS',
     FILTER = 'FILTER_COLLECTION_EXERCISE';
 
@@ -39,11 +40,22 @@ function saveCollectionExercise (data) {
 
     return function (dispatch) {
 
-        return collectionExercisesService.collectionExercises.saveCollectionExercise(data)
-            .then(function (data) {
-                //dispatch(savedCollectionExercise());
-                return data;
-            });
+        return collectionExercisesService.collectionExercises.saveCollectionExercise({
+            periods: data.periods,
+            survey_ref: data.surveyReference
+        })
+        .then(function (data) {
+            dispatch(savedCollectionExercise());
+            return data;
+        });
+    };
+
+}
+
+function savedCollectionExercise () {
+
+    return {
+        type: SAVED
     };
 
 }

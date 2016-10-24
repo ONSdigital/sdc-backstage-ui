@@ -76,16 +76,12 @@ var reportingUnitOptions = function (key) {
 };
 
 function mapStateToProps (state) {
-
     return {
 		surveyList:
-			_.unique(state.surveys.items, false, function (item) {
-				return item.reference;
-			})
-			.map(function (item) {
+			state.surveys.items.map(function (item) {
 				return {
 					value: item.reference,
-					title: item.title,
+					title: item.name,
 					frequency: item.frequency
 				};
 			})
@@ -119,7 +115,7 @@ function mapDispatchToProps (dispatch) {
 
 			dispatch(CollectionExercisesActions.SAVE_COLLECTION_EXERCISE({
 				periods: periods,
-				survey_title: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
+				surveyReference: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
 			}))
 			.then(function () {
 				appStore.dispatch(CollectionExercisesActions.REQUEST_ALL());

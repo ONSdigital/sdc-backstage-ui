@@ -5,6 +5,8 @@ var Redux = require('react-redux'),
 
 	appStore = require('../stores/backstage.store.jsx'),
 
+	collectionExerciseMappings = require('../mappings/collectionExercises.jsx'),
+
 	CollectionExerciseDetailsComponent = require('../components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx');
 
 /**
@@ -21,7 +23,8 @@ function mapStateToProps (state, ownProps) {
 	}
 
 	return {
-		details: state.ui.collectionExercise.details
+		details: state.ui.collectionExercise.details,
+		survey: collectionExerciseMappings.getSurvey(state.surveys.items, state.ui.collectionExercise.details).survey
 	};
 }
 

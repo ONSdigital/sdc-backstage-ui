@@ -13,7 +13,7 @@ var gulp = require('gulp'),
         jsSrc: './app/**/*.js',
         sassSrc: './app/app.scss',
         //sassSrc: './app/**/*.scss',
-        jsxSrc: './app/**/*.jsx',
+        jsxSrc: ['./app/**/*.jsx', './fake/**/*.jsx'],
         outputDir: './dist'
     };
 
