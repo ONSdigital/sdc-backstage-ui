@@ -76,10 +76,15 @@ var reportingUnitOptions = function (key) {
 };
 
 function mapStateToProps (state) {
+
     return {
-		surveyList: state.surveys.items.map(function (item) {
+		surveyList:
+			_.unique(state.surveys.items, false, function (item) {
+				return item.reference;
+			})
+			.map(function (item) {
 				return {
-					value: item.title,
+					value: item.reference,
 					title: item.title,
 					frequency: item.frequency
 				};
