@@ -110,7 +110,7 @@ module.exports = function () {
 								<div style={toggle(this.props.details.state === 'scheduled' || this.props.details.state === 'sample_loaded')}>
 
 									<h4>Current Samples</h4>
-									<ul className="details-list" style={toggle(this.props.details.samples.length)}>
+									{/*<ul className="details-list" style={toggle(this.props.details.samples.length)}>
 										<li className="row details-list-item">
 											<strong className="col-xs-4 title">RU Reference</strong>
 											<strong className="col-xs-4 title">Business Name</strong>
@@ -125,7 +125,7 @@ module.exports = function () {
 												</li>
 											);
 										})}
-									</ul>
+									</ul>*/}
 									<ul className="details-list">
 										<li className="details-list-item">
 											<form id="samples-form">
