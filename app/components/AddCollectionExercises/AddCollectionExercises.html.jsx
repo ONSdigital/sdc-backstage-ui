@@ -11,7 +11,7 @@ module.exports = function () {
                 {this.props.selectedReportingPeriodOptions.map(function (segment) {
 
                     return (
-                        <ul id="period-selection" className="period" key={'period'+segment[0].value}>
+                        <ul className="period period-selection" key={'period'+segment[0].value}>
                             {segment.map(function (period) {
                                 return (
                                     <li key={period.value}>

@@ -109,13 +109,14 @@ function mapDispatchToProps (dispatch) {
 
             var periods = [];
 
-			$('#period-selection').find('.period-checkbox:checked').each(function (i, el) {
+			$('.period-selection').find('.period-checkbox:checked').each(function (i, el) {
+				console.log(el);
 				periods.push($(el).attr('value'));
 			});
 
 			dispatch(CollectionExercisesActions.SAVE_COLLECTION_EXERCISE({
 				periods: periods,
-				surveyReference: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
+				surveyReference: $('option:selected', $('.add-collection-exercises-dropdown')).attr('value')
 			}))
 			.then(function () {
 				appStore.dispatch(CollectionExercisesActions.REQUEST_ALL());
