@@ -53,13 +53,14 @@ var pageState = {
                     <PageTitleComponent title="SDC Backstage UI Prototype" />
                     <div className="container">
                         <h3>API</h3>
-                        <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
+                        <p><Link className="btn btn-info" to={'/collection-exercises'}>View Collection Exercises</Link></p>
+                        <p><Link className="btn btn-info" to={'/collection-exercises/create'}>Add Collection Exercise</Link></p>
 
                         <h3>UI</h3>
                         <h4>Collection Exercise States</h4>
-                        <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
-                        <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/sample-loaded'}>Sample loaded</Link></p>
-                        <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/published'}>Published</Link></p>
+                        <p><Link className="btn btn-info" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
+                        <p><Link className="btn btn-info" to={'/ui/collection-exercise/sample-loaded'}>Sample loaded</Link></p>
+                        <p><Link className="btn btn-info" to={'/ui/collection-exercise/published'}>Published</Link></p>
                     </div>
                 </div>
             );

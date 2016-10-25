@@ -8,8 +8,6 @@ module.exports = function () {
 		return 'tab ' + (status === this.props.activeFilter ? 'tab-on' : 'tab-off');
 	}.bind(this);
 
-	var serveyReference = 1;
-
 	return (
 		<div>
 			<PageTitleComponent title="ONS Business Surveys" />
@@ -39,7 +37,7 @@ module.exports = function () {
 								<button onClick={this.props.onCollectionFilterClick.bind(this, 'closed')} className={tabClass('closed')}>Closed</button>
 								<button onClick={this.props.onCollectionFilterClick.bind(this, '')} className={tabClass('')}>All</button>
 							</div>
-							<button onClick={this.props.onAddCollectionExerciseClick} className="btn btn-primary add-btn">Add collection exercise</button>
+							<button onClick={this.props.onAddCollectionExerciseClick} className="btn btn-primary add-btn">Add collection exercise(s)</button>
 						</div>
 
 					</div>
@@ -69,7 +67,7 @@ module.exports = function () {
 										.map(function (item) {
 											return (
 												<tr key={item.id} className="t-row">
-													<td>[00{serveyReference++}]</td>
+													<td>{item.survey.reference}</td>
 													<td><Link to={'/collection-exercises/details/'+item.id}>{item.survey.name}</Link></td>
 													<td><span>{item["period"]}</span></td>
 													<td><span>{collectionExerciseFilters.getPrettyStatus(item["state"])}</span></td>

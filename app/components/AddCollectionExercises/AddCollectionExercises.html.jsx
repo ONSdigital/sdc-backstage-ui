@@ -10,7 +10,7 @@ module.exports = function () {
 
         return (
             <li className="field-list-item">
-                <h4 className="title">Reporting Unit</h4>
+                <h4 className="title">Reporting Period</h4>
                 {this.props.selectedReportingPeriodOptions.map(function (segment) {
 
                     return (
@@ -46,7 +46,7 @@ module.exports = function () {
                         <Link to={'/collection-exercises'}>Collection Exercises</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Add Collection Exercise</span>
+                        <span>Add Collection Exercise(s)</span>
                     </li>
                 </ol>
             </div>
