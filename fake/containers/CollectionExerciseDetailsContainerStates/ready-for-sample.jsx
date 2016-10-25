@@ -1,28 +1,25 @@
 var Redux = require('react-redux'),
 
+	assign = require('object-assign'),
+
 	CollectionExerciseDetailsComponent = require('../../../app/components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx'),
-	keyDates = require('./fake-key-dates.jsx');
+	stub = require('./stub.jsx');
 
 function noop () {}
 
 var ids = 0;
 
 function mapStateToProps () {
-	return {
-		details: {
-			survey_title: 'MWSS - January 2017',
-			state: 'ready-for-sample',
-			key_dates: keyDates,
-			samples: [
-				{
-					id: ids++,
-					reporting_unit_ref: 'bres',
-					business_name: 'Business Name',
-					form_type: 'FE3F'
-				}
-			]
-		}
-	};
+	var adj = assign({}, stub);
+
+	adj.details.samples.push({
+		id: 'iuh29ef2'+ids++,
+		reporting_unit_ref: 'bres',
+		business_name: 'Business Name',
+		form_type: 'FE3F'
+	});
+
+	return adj;
 }
 
 function mapDispatchToProps () {

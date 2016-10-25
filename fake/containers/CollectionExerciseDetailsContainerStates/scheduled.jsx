@@ -1,21 +1,12 @@
 var Redux = require('react-redux'),
 
 	CollectionExerciseDetailsComponent = require('../../../app/components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx'),
-	keyDates = require('./fake-key-dates.jsx');
+	stub = require('./stub.jsx');
 
 function noop () {}
 
-var ids = 0;
-
 function mapStateToProps () {
-	return {
-		details: {
-			survey_title: 'MWSS - January 2017',
-			state: 'scheduled',
-			key_dates: keyDates,
-			samples: []
-		}
-	};
+	return stub;
 }
 
 function mapDispatchToProps () {

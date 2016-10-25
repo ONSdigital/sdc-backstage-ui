@@ -13,14 +13,33 @@ module.exports = function () {
 			<div className="tab-bar-wrap">
 				<div className="container">
 
+					<div className="row">
+						<ol className="breadcrumb">
+							<li className="breadcrumb-item">
+								<Link to={'/'}>Back to start</Link>
+							</li>
+							<li className="breadcrumb-item">
+								<span>Collection Exercises</span>
+							</li>
+						</ol>
+					</div>
+
 					<h3>Collection Exercises</h3>
 
 					<div className="tab-bar">
 						<div className="tabs">
-							<button onClick={this.props.onCollectionFilterClick.bind(this, 'draft')} className={tabClass('draft')}>Draft</button>
+							<button onClick={this.props.onCollectionFilterClick.bind(this, 'live')} className={tabClass('live')}>Live</button>
+							<button onClick={this.props.onCollectionFilterClick.bind(this, 'scheduled')} className={tabClass('scheduled')}>Scheduled</button>
+							<button onClick={this.props.onCollectionFilterClick.bind(this, 'sample_loaded')} className={tabClass('sample_loaded')}>Sample loaded</button>
 							<button onClick={this.props.onCollectionFilterClick.bind(this, 'published')} className={tabClass('published')}>Published</button>
 							<button onClick={this.props.onCollectionFilterClick.bind(this, 'closed')} className={tabClass('closed')}>Closed</button>
 							<button onClick={this.props.onCollectionFilterClick.bind(this, '')} className={tabClass('')}>All</button>
+
+
+							{/*<button onClick={this.props.onCollectionFilterClick.bind(this, 'draft')} className={tabClass('draft')}>Draft</button>
+							<button onClick={this.props.onCollectionFilterClick.bind(this, 'published')} className={tabClass('published')}>Published</button>
+							<button onClick={this.props.onCollectionFilterClick.bind(this, 'closed')} className={tabClass('closed')}>Closed</button>
+							<button onClick={this.props.onCollectionFilterClick.bind(this, '')} className={tabClass('')}>All</button>*/}
 						</div>
 						<button onClick={this.props.onAddCollectionExerciseClick} className="btn btn-primary add-btn">Add collection exercise</button>
 					</div>

@@ -1,6 +1,10 @@
 .collection-exercise-list-component {
     padding-bottom : 50px;
 
+    .breadcrumb {
+        margin : 0;
+    }
+
     .survey-list {
         margin-top : 2rem;
 
