@@ -3,7 +3,8 @@ function getPrettyStatus (state) {
 	var statusTitleMap = {
 		'scheduled': 'Scheduled',
 		'sample_loaded': 'Sample Loaded',
-		'published': 'Published'
+		'published': 'Published',
+		'live': 'Live'
 	};
 
 	return statusTitleMap[state]

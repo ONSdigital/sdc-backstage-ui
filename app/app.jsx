@@ -40,7 +40,8 @@ var Provider = require('react-redux').Provider,
      */
     FakeCollectionExerciseDetailsContainer_Scheduled = require('../fake/containers/CollectionExerciseDetailsContainerStates/scheduled.jsx'),
     FakeCollectionExerciseDetailsContainer_SampleLoaded = require('../fake/containers/CollectionExerciseDetailsContainerStates/sample_loaded.jsx'),
-    FakeCollectionExerciseDetailsContainer_Published = require('../fake/containers/CollectionExerciseDetailsContainerStates/published.jsx');
+    FakeCollectionExerciseDetailsContainer_Published = require('../fake/containers/CollectionExerciseDetailsContainerStates/published.jsx'),
+    FakeCollectionExerciseDetailsContainer_Live = require('../fake/containers/CollectionExerciseDetailsContainerStates/live.jsx');
 
 
 var history = syncHistoryWithStore(browserHistory, appStore);
@@ -53,14 +54,14 @@ var pageState = {
                     <PageTitleComponent title="SDC Backstage UI Prototype" />
                     <div className="container">
                         <h3>API</h3>
-                        <p><Link className="btn btn-info" to={'/collection-exercises'}>View Collection Exercises</Link></p>
-                        <p><Link className="btn btn-info" to={'/collection-exercises/create'}>Add Collection Exercise</Link></p>
+                        <p><Link className="btn btn-info" to={'/collection-exercises'}>Collection Exercises</Link></p>
 
                         <h3>UI</h3>
                         <h4>Collection Exercise States</h4>
                         <p><Link className="btn btn-info" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
                         <p><Link className="btn btn-info" to={'/ui/collection-exercise/sample-loaded'}>Sample loaded</Link></p>
                         <p><Link className="btn btn-info" to={'/ui/collection-exercise/published'}>Published</Link></p>
+                        <p><Link className="btn btn-info" to={'/ui/collection-exercise/live'}>Live</Link></p>
                     </div>
                 </div>
             );
@@ -134,6 +135,7 @@ jQuery.ajax('/config.json',
                         <Route path="ui/collection-exercise/scheduled" component={FakeCollectionExerciseDetailsContainer_Scheduled} />
                         <Route path="ui/collection-exercise/sample-loaded" component={FakeCollectionExerciseDetailsContainer_SampleLoaded} />
                         <Route path="ui/collection-exercise/published" component={FakeCollectionExerciseDetailsContainer_Published} />
+                        <Route path="ui/collection-exercise/live" component={FakeCollectionExerciseDetailsContainer_Live} />
                     </Route>
                     <Route path="*" component={NoMatchLayout} />
                 </Router>

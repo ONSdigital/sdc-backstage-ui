@@ -39,18 +39,34 @@ module.exports = function () {
 						<div className="row">
 							<div className="col-xs-12">
 								<h4>Status: <strong>{collectionExerciseFilters.getPrettyStatus(this.props.details.state)}</strong></h4>
+								<p style={toggle(this.props.details.state === 'live')}><a href="">[View reminder settings]</a></p>
 								<button style={toggle(this.props.details.state === 'scheduled')} className="btn btn-primary">[Set as Ready for sample]</button>
 								<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onPublishedClicked} className="btn btn-primary">Publish</button>
 								<br />
-								<br />
-
-								{/*<p style={toggle(this.props.details.state === 'scheduled')}>[Sample available in 3 days]</p>
-								<br />*/}
 							</div>
 						</div>
 
 						<div className="row">
 							<div className="col-xs-12 col-sm-6">
+								<div style={toggle(this.props.details.state === 'live')}>
+									<h4>Responses: [361 of 4971 = 7% (target 83%)]</h4>
+									<ul className="details-list">
+										<li className="row details-list-item">
+											<label className="col-xs-12 col-sm-6 title">Started online</label>
+											<strong className="col-xs-12 col-sm-6 detail">23</strong>
+										</li>
+										<li className="row details-list-item">
+											<label className="col-xs-12 col-sm-6 title">Completed online</label>
+											<strong className="col-xs-12 col-sm-6 detail">338</strong>
+										</li>
+										<li className="row details-list-item">
+											<label className="col-xs-12 col-sm-6 title">Completed paper</label>
+											<strong className="col-xs-12 col-sm-6 detail">23</strong>
+										</li>
+									</ul>
+								</div>
+								<br />
+
 								<h4>Dates</h4>
 								<ul className="details-list">
 									{this.props.details['key_dates'].map(function (item, i) {
