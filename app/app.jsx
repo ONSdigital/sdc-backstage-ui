@@ -27,6 +27,7 @@ var Provider = require('react-redux').Provider,
      */
     MainLayout = require('./components/shared/layout/MainLayout.jsx'),
     NoMatchLayout = require('./components/shared/layout/NoMatchLayout.jsx'),
+    PageTitleComponent = require('./components/shared/PageTitle/PageTitle.comp.jsx'),
 
     /**
      * Store
@@ -48,36 +49,25 @@ var pageState = {
 
         tempHub: function () {
             return (
-                <div className="container">
-                    <h2>Start Page (temp)</h2>
+                <div>
+                    <PageTitleComponent title="SDC Backstage UI Prototype" />
+                    <div className="container">
+                        <h3>API</h3>
+                        <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
 
-                    <h3>API</h3>
-                    <p><Link className="btn btn-info btn-large" to={'/collection-exercises'}>View Collection Exercises</Link></p>
-
-                    <h3>UI</h3>
-                    <h4>Collection Exercise States</h4>
-                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
-                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/sample-loaded'}>Sample loaded</Link></p>
-                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/published'}>Published</Link></p>
+                        <h3>UI</h3>
+                        <h4>Collection Exercise States</h4>
+                        <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
+                        <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/sample-loaded'}>Sample loaded</Link></p>
+                        <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/published'}>Published</Link></p>
+                    </div>
                 </div>
             );
         },
 
         collectionExercise: {
 
-            create: function () {
-                return (
-                    <div className="container">
-                        <AddCollectionExercisesContainer />
-                    </div>
-                );
-            },
 
-            list: function () {
-                return (
-                    <CollectionExerciseListContainer />
-                );
-            }
 
         },
 
@@ -133,8 +123,8 @@ jQuery.ajax('/config.json',
                         /**
                          * API
                          */
-                        <Route path="collection-exercises" component={pageState.collectionExercise.list} />
-                        <Route path="collection-exercises/create" component={pageState.collectionExercise.create} />
+                        <Route path="collection-exercises" component={CollectionExerciseListContainer} />
+                        <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
                         <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
 
                         /**

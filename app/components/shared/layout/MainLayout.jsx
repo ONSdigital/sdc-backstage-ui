@@ -5,7 +5,6 @@ var MainLayout = React.createClass({
 	render: function () {
 		return (
 			<section>
-				<PageTitleComponent title="ONS Surveys Manager" />
 				{this.props.children}
 			</section>
 		);
