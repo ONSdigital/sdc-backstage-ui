@@ -8,13 +8,14 @@ module.exports = function () {
 
 	function toggle(condition) {
 		return {
-			display : (condition ? 'block' : 'none')
+			display : (condition ? '' : 'none')
 		};
 	}
 
 	var statusTitleMap = {
 		'scheduled': 'Scheduled',
-		'ready-for-sample': 'Ready for sample'
+		'sample_loaded': 'Sample Loaded',
+		'published': 'Published'
 	};
 
 	return (
@@ -41,8 +42,12 @@ module.exports = function () {
 						<div className="col-xs-12">
 							<h4>Status: <strong>{statusTitleMap[this.props.details.state]}</strong></h4>
 							<button style={toggle(this.props.details.state === 'scheduled')} className="btn btn-primary">[Set as Ready for sample]</button>
-							<p style={toggle(this.props.details.state === 'ready-for-sample')}>[Sample available in 3 days]</p>
+							<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onPublishedClicked} className="btn btn-primary">Publish</button>
 							<br />
+							<br />
+
+							{/*<p style={toggle(this.props.details.state === 'scheduled')}>[Sample available in 3 days]</p>
+							<br />*/}
 						</div>
 					</div>
 
@@ -69,25 +74,26 @@ module.exports = function () {
 									<strong className="col-xs-12 col-sm-6 detail">[2nd Feb 2017]</strong>
 								</li>
 							</ul>
-							<br />
-							<br />
-
-							<h4>Temp Actions</h4>
-							<div className="btn-toolbar" role="toolbar" aria-label="...">
-								<div className="btn-group" role="group" aria-label="...">
-									<button onClick={this.props.onPublishedClicked} className="btn btn-info">Publish</button>
-								</div>
-							</div>
 						</div>
 						<div className="col-xs-12 col-sm-6">
 
-							<div style={toggle(this.props.details.state === ('sample-loaded' || 'live'))}>
+							<div style={toggle(this.props.details.state === 'sample_loaded' || this.props.details.state === 'published' || this.props.details.state === 'live')}>
 								<h4>Sample</h4>
-								<p>[4123] Reporting Units</p>
+								<p><a href="">[4123] Reporting Units</a></p>
+
+								<h5><strong>Sub Samples</strong></h5>
+								<ul className="details-list">
+									<li className="details-list-item">
+										Sample
+									</li>
+									<li className="details-list-item">
+										Sample
+									</li>
+								</ul>
 								<br />
 							</div>
 
-							<div style={toggle(this.props.details.state === 'ready-for-sample')}>
+							<div style={toggle(this.props.details.state === 'scheduled' || this.props.details.state === 'sample_loaded')}>
 
 								<h4>Current Samples</h4>
 								<ul className="details-list" style={toggle(this.props.details.samples.length)}>
@@ -134,7 +140,7 @@ module.exports = function () {
 							<ul className="details-list">
 								<li className="row details-list-item">
 									<label className="col-xs-12 col-sm-4 title">Long title</label>
-									<strong className="col-xs-12 col-sm-8 detail"><a href="">[Monthly Wages and Salaries Survey]</a></strong>
+									<strong className="col-xs-12 col-sm-8 detail"><a href="">{this.props.survey.name}</a></strong>
 								</li>
 								<li className="row details-list-item">
 									<label className="col-xs-12 col-sm-4 title">Short title</label>
@@ -142,7 +148,7 @@ module.exports = function () {
 								</li>
 								<li className="row details-list-item">
 									<label className="col-xs-12 col-sm-4 title">Reference no.</label>
-									<strong className="col-xs-12 col-sm-8 detail">[147]</strong>
+									<strong className="col-xs-12 col-sm-8 detail">{this.props.survey.reference}</strong>
 								</li>
 							</ul>
 							<br />

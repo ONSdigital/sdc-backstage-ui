@@ -38,7 +38,8 @@ var Provider = require('react-redux').Provider,
      * Fake
      */
     FakeCollectionExerciseDetailsContainer_Scheduled = require('../fake/containers/CollectionExerciseDetailsContainerStates/scheduled.jsx'),
-    FakeCollectionExerciseDetailsContainer_ReadyForSample = require('../fake/containers/CollectionExerciseDetailsContainerStates/ready-for-sample.jsx');
+    FakeCollectionExerciseDetailsContainer_SampleLoaded = require('../fake/containers/CollectionExerciseDetailsContainerStates/sample_loaded.jsx'),
+    FakeCollectionExerciseDetailsContainer_Published = require('../fake/containers/CollectionExerciseDetailsContainerStates/published.jsx');
 
 
 var history = syncHistoryWithStore(browserHistory, appStore);
@@ -56,7 +57,8 @@ var pageState = {
                     <h3>UI</h3>
                     <h4>Collection Exercise States</h4>
                     <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/scheduled'}>Scheduled</Link></p>
-                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/ready-for-sample'}>Ready for sample</Link></p>
+                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/sample-loaded'}>Sample loaded</Link></p>
+                    <p><Link className="btn btn-info btn-large" to={'/ui/collection-exercise/published'}>Published</Link></p>
                 </div>
             );
         },
@@ -139,7 +141,8 @@ jQuery.ajax('/config.json',
                          * UI
                          */
                         <Route path="ui/collection-exercise/scheduled" component={FakeCollectionExerciseDetailsContainer_Scheduled} />
-                        <Route path="ui/collection-exercise/ready-for-sample" component={FakeCollectionExerciseDetailsContainer_ReadyForSample} />
+                        <Route path="ui/collection-exercise/sample-loaded" component={FakeCollectionExerciseDetailsContainer_SampleLoaded} />
+                        <Route path="ui/collection-exercise/published" component={FakeCollectionExerciseDetailsContainer_Published} />
                     </Route>
                     <Route path="*" component={NoMatchLayout} />
                 </Router>

@@ -7,12 +7,21 @@ var Redux = require('react-redux'),
 
 function noop () {}
 
+var ids = 0;
+
 function mapStateToProps () {
 	var adj = assign({}, stub);
 
-	adj.details.state = 'scheduled';
+	adj.details.samples = [{
+		id: 'iuh29ef2'+ids++,
+		reporting_unit_ref: 'bres',
+		business_name: 'Business Name',
+		form_type: 'FE3F'
+	}];
 
-	return stub;
+	adj.details.state = 'published';
+
+	return adj;
 }
 
 function mapDispatchToProps () {

@@ -1,7 +1,7 @@
 module.exports = {
 	details: {
 		survey_title: 'MWSS - January 2017',
-		state: 'ready-for-sample',
+		state: '',
 		key_dates: [
 			{
 				description: 'Main print selection',

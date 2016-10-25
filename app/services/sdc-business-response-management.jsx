@@ -42,8 +42,8 @@ function uploadCollectionExerciseSample (opts) {
 	return jQuery.ajax(url + '/collection-exercises/'+opts.collectionExerciseId, {
 		type : 'PUT',
 		data : opts.formData,
-		processData: false,  // tell jQuery not to process the data
-		contentType: false,  // tell jQuery not to set contentType
+		processData: false,
+		contentType: false,
 		success : function(data) {
 			console.log('Dispatch to change redux state with this data!', data);
 		}
@@ -58,7 +58,7 @@ function publishCollectionExercise (id) {
 	return jQuery.ajax(url + '/collection-exercises/'+id,
 		{
 			method: "PUT",
-			data: JSON.stringify({ "action": "publish" }),
+			data: JSON.stringify({ "new_state": "published" }),
 			dataType: "json",
 			contentType: "application/json"
 		}

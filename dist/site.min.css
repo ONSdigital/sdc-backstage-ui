@@ -3508,7 +3508,7 @@ input[type="button"].btn-block {
 .collection-exercise-list-component {
   padding-bottom: 50px; }
   .collection-exercise-list-component .breadcrumb {
-    margin: 0; }
+    margin-bottom: 0; }
   .collection-exercise-list-component .survey-list {
     margin-top: 2rem; }
     .collection-exercise-list-component .survey-list td {
