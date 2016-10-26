@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 
 console.log(argv);
 
-var portNumber = argv.port || 8080;
+var portNumber = argv.port || argv.PORT || 8080;
 
 /**
  * Compile tasks
