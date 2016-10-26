@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     static = require('node-static'),
     argv = require('yargs').argv,
+    gutil = require('gulp-util'),
 
     config = {
         jsSrc: './app/**/*.js',
@@ -19,7 +20,8 @@ var gulp = require('gulp'),
 
 console.log(argv);
 
-var portNumber = argv.port || argv.PORT || 8080;
+var portNumber = argv.port || gutil.env.PORT || 8080;
+console.log(" - portNumber: " + portNumber)
 
 /**
  * Compile tasks
