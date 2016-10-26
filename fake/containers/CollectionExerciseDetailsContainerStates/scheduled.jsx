@@ -3,9 +3,8 @@ var Redux = require('react-redux'),
 	assign = require('object-assign'),
 
 	CollectionExerciseDetailsComponent = require('../../../app/components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx'),
-	stub = require('./stub.jsx');
-
-function noop () {}
+	stub = require('./stub.jsx'),
+	stubDispatch = require('./stub-dispatch.jsx');
 
 function mapStateToProps () {
 	var adj = assign({}, stub);
@@ -16,10 +15,7 @@ function mapStateToProps () {
 }
 
 function mapDispatchToProps () {
-	return {
-		onStateChangeClicked: noop,
-		onSamplesUploadClicked: noop
-	};
+	return stubDispatch;
 }
 
 module.exports = Redux.connect(
