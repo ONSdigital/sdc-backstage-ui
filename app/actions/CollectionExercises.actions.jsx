@@ -117,11 +117,11 @@ function uploadCollectionExerciseSample (id, formData) {
 
 }
 
-function publishCollectionExercise (id) {
+function changeCollectionExerciseState (id, state) {
 
     return function (dispatch) {
 
-        return collectionExercisesService.collectionExercises.publish(id)
+        return collectionExercisesService.collectionExercises.changeState(id, state)
             .then(function (data) {
                 dispatch(receiveCollectionExercise(data));
                 return data;
@@ -158,7 +158,7 @@ module.exports = {
 
     SAVE_COLLECTION_EXERCISE: saveCollectionExercise,
     UPLOAD_COLLECTION_EXERCISE_SAMPLE: uploadCollectionExerciseSample,
-    PUBLISH_COLLECTION_EXERCISE: publishCollectionExercise,
+    CHANGE_COLLECTION_EXERCISE_STATE: changeCollectionExerciseState,
 
     UI_FILTER: filterCollectionExerciseList
 

@@ -26,7 +26,7 @@ function mapStateToProps () {
 
 function mapDispatchToProps () {
 	return {
-		onPublishedClicked: noop,
+		onStateChangeClicked: noop,
 		onSamplesUploadClicked: noop
 	};
 }

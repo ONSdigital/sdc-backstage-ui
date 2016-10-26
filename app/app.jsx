@@ -67,12 +67,6 @@ var pageState = {
             );
         },
 
-        collectionExercise: {
-
-
-
-        },
-
         default: function () {
             return pageState.tempHub();
         }
@@ -97,8 +91,10 @@ jQuery.ajax('/config.json',
     appStore.dispatch(surveyActions.REQUEST());
     appStore.dispatch(surveyActions.FETCH())
         .then(function () {
-            appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
-            appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+            setTimeout(function () {
+                appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
+                appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+            },1);
         });
 
     if(res.env === 'dev') {

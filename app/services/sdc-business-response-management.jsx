@@ -51,14 +51,14 @@ function uploadCollectionExerciseSample (opts) {
 
 }
 
-function publishCollectionExercise (id) {
+function changeCollectionExerciseState (id, state) {
 
 	var url = window.config.app.endpoints["sdc-business-response-management"];
 
 	return jQuery.ajax(url + '/collection-exercises/'+id,
 		{
 			method: "PUT",
-			data: JSON.stringify({ "new_state": "published" }),
+			data: JSON.stringify({ "desired_state": state }),
 			dataType: "json",
 			contentType: "application/json"
 		}
@@ -72,6 +72,6 @@ module.exports = {
 		saveCollectionExercise: saveCollectionExercise,
 		get: getCollectionExercise,
 		uploadSample: uploadCollectionExerciseSample,
-		publish: publishCollectionExercise
+		changeState: changeCollectionExerciseState
 	}
 };

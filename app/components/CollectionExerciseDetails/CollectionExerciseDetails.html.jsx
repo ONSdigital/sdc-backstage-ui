@@ -41,7 +41,8 @@ module.exports = function () {
 								<h4>Status: <strong>{collectionExerciseFilters.getPrettyStatus(this.props.details.state)}</strong></h4>
 								<p style={toggle(this.props.details.state === 'live')}><a href="">[View reminder settings]</a></p>
 								<button style={toggle(this.props.details.state === 'scheduled')} className="btn btn-primary">[Set as Ready for sample]</button>
-								<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onPublishedClicked} className="btn btn-primary">Publish</button>
+								<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onStateChangeClicked.bind(this, 'published')} className="btn btn-primary">Publish</button>
+								<button style={toggle(this.props.details.state === 'published')} onClick={this.props.onStateChangeClicked.bind(this, 'live')} className="btn btn-primary">Go Live</button>
 								<br />
 							</div>
 						</div>
@@ -64,8 +65,9 @@ module.exports = function () {
 											<strong className="col-xs-12 col-sm-6 detail">23</strong>
 										</li>
 									</ul>
+									<br />
 								</div>
-								<br />
+
 
 								<h4>Dates</h4>
 								<ul className="details-list">
@@ -154,7 +156,7 @@ module.exports = function () {
 								<ul className="details-list">
 									<li className="row details-list-item">
 										<label className="col-xs-12 col-sm-4 title">Long title</label>
-										<strong className="col-xs-12 col-sm-8 detail"><a href="">{this.props.survey.name}</a></strong>
+										<strong className="col-xs-12 col-sm-8 detail"><span>{this.props.survey.name}</span></strong>
 									</li>
 									<li className="row details-list-item">
 										<label className="col-xs-12 col-sm-4 title">Short title</label>

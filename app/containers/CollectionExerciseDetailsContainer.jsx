@@ -30,8 +30,11 @@ function mapStateToProps (state, ownProps) {
 
 function mapDispatchToProps (dispatch, ownProps) {
 	return {
-		onPublishedClicked: function () {
-			dispatch(CollectionExercisesActions.PUBLISH_COLLECTION_EXERCISE(ownProps.params.id));
+		onStateChangeClicked: function (state) {
+			dispatch(CollectionExercisesActions.CHANGE_COLLECTION_EXERCISE_STATE(ownProps.params.id, state))
+				.then(function () {
+					appStore.dispatch(CollectionExercisesActions.FETCH_ALL());
+				});
 		},
 
 		onSamplesUploadClicked: function () {
