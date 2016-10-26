@@ -1,0 +1,8 @@
+{
+  "name": "sdc-business-home",
+  "description": "SDC Business Home",
+  "repository": "https://github.com/onsdigital/sdc-backstage-ui",
+  "logo": "https://www.ons.gov.uk/assets/img/ons-logo.svg",
+  "keywords": ["node", "react", "static"],
+  "image": "heroku/nodejs"
+}
