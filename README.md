@@ -27,24 +27,31 @@ request with the exception of the ./dist folder and config.json file.
 ## Development
 
 ### Prerequisites
+
 * [Install Node](https://nodejs.org/)
 * From your command line or terminal, cd into your cloned directory and run:
+
 ```bash
 npm install
 ```
+
 * After all dependencies have been installed, from the command line run:
+
 ```bash
 gulp dev
 ```
+
 The Gulp task will run a node server that will build the minified files required
 for development.
 
 ## Deployment
 
 Run the first 2 development steps above, after this run:
+
 ```bash
 gulp test
 ```
+
 Optionally add a flag labelled port to change port number
 
 ## Running without Node.js
@@ -53,7 +60,7 @@ This front-end can be run with any HTTP server capable of serving static
 files. Here's how to do it with Python 3:
 
 ```bash
-python3 -m http.server       
+python3 server.py
 ```
 
 Then go to `http://0.0.0.0:8000` in a browser.
