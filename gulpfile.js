@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     reactify = require('reactify'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
-    static = require('node-static'),
+    nodeStatic = require('node-static'),
     argv = require('yargs').argv,
     gutil = require('gulp-util'),
 
@@ -19,7 +19,6 @@ var gulp = require('gulp'),
     };
 
 var portNumber = argv.port || gutil.env.PORT || 8080;
-
 
 gulp.task('compile:sass', () => {
     return gulp.src(config.sassSrc)
@@ -62,7 +61,7 @@ gulp.task('dev', [
 ], () => {
     livereload.listen();
 
-    var fileServer = new static.Server('./');
+    var fileServer = new nodeStatic.Server('./');
 
     require('http').createServer(function (request, response) {
         request.addListener('end', function () {
@@ -85,7 +84,7 @@ gulp.task('dev', [
 
 
 gulp.task('test', () => {
-    var fileServer = new static.Server('./');
+    var fileServer = new nodeStatic.Server('./');
 
     require('http').createServer(function (request, response) {
         request.addListener('end', function () {
