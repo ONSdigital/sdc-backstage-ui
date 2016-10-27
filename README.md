@@ -27,12 +27,12 @@ request with the exception of the ./dist folder and config.json file.
 ## Development
 
 ### Prerequisites
-1. [Install Node](https://nodejs.org/)
-2. From your command line or terminal, cd into your cloned directory and run:
+* [Install Node](https://nodejs.org/)
+* From your command line or terminal, cd into your cloned directory and run:
 ```bash
 npm install
 ```
-3. After all dependencies have been installed, from the command line run:
+* After all dependencies have been installed, from the command line run:
 ```bash
 gulp dev
 ```
@@ -41,7 +41,7 @@ for development.
 
 ## Deployment
 
-Run the 2 development steps above, after this run:
+Run the first 2 development steps above, after this run:
 ```bash
 gulp test
 ```
