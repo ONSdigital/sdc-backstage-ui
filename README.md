@@ -19,6 +19,34 @@ command instead:
 cp config-local-dev.json config.json
 ```
 
+## Prerequisites to running the app
+
+A web server will need to be setup to serve ./index.html when matching any route
+request with the exception of the ./dist folder and config.json file.
+
+## Development
+
+### Prerequisites
+1. [Install Node](https://nodejs.org/)
+2. From your command line or terminal, cd into your cloned directory and run:
+```bash
+npm install
+```
+3. After all dependencies have been installed, from the command line run:
+```bash
+gulp dev
+```
+The Gulp task will run a node server that will build the minified files required
+for development.
+
+## Deployment
+
+Run the 2 development steps above, after this run:
+```bash
+gulp test
+```
+Optionally add a flag labelled port to change port number
+
 ## Running without Node.js
 
 This front-end can be run with any HTTP server capable of serving static
