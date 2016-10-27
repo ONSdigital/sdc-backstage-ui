@@ -8,7 +8,6 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     nodeStatic = require('node-static'),
     argv = require('yargs').argv,
-    gutil = require('gulp-util'),
 
     config = {
         jsSrc: './app/**/*.js',
@@ -18,7 +17,7 @@ var gulp = require('gulp'),
         outputDir: './dist'
     };
 
-var portNumber = argv.port || gutil.env.PORT || 8080;
+var portNumber = argv.port || 8080;
 
 gulp.task('compile:sass', () => {
     return gulp.src(config.sassSrc)

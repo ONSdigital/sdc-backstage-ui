@@ -1,1 +1,1 @@
-web: gulp test
+web: gulp test --port=$PORT
