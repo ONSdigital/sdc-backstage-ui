@@ -5,7 +5,7 @@ function getSurvey (surveys, collectionExerciseItem) {
 	return assign({}, collectionExerciseItem, {
 		survey: _.find(surveys, function (surveyItem) {
 			return surveyItem.reference === collectionExerciseItem.survey_ref;
-		})
+		}) || {}
 	});
 }
 

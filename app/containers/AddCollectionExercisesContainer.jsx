@@ -117,13 +117,16 @@ function mapDispatchToProps (dispatch) {
 				periods: periods,
 				surveyReference: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
 			}))
-			.then(function () {
-				appStore.dispatch(CollectionExercisesActions.REQUEST_ALL());
+			.then(function (data) {
+				appStore.dispatch(CollectionExercisesActions.STORE_ADD(data[0]));
+				locationActions.change('/collection-exercises/details/'+data[0].id);
+
+				/*appStore.dispatch(CollectionExercisesActions.REQUEST_ALL());
 				appStore.dispatch(CollectionExercisesActions.FETCH_ALL())
 					.then(function () {
 						locationActions.change('/collection-exercises');
 						dispatch(uiActions.RESET_ADD_COLLECTION_EXERCISE());
-					});
+					});*/
 			});
         },
 

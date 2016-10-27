@@ -20,15 +20,6 @@ var gulp = require('gulp'),
 
 var portNumber = argv.port || gutil.env.PORT || 8080;
 
-/**
- * Compile tasks
- */
-/*gulp.task('compile:js', () => {
-    return gulp.src(config.jsSrc)
-        .pipe(concat('site.min.js'))
-        .pipe(gulp.dest(config.outputDir))
-        .pipe(livereload());
-});*/
 
 gulp.task('compile:sass', () => {
     return gulp.src(config.sassSrc)
@@ -51,13 +42,6 @@ gulp.task('compile:jsx', () => {
 });
 
 
-/**
- * Watch tasks
- *//*
-gulp.task('watch:compile:js', ['compile:js'], () => {
-    gulp.watch(config.jsSrc, ['compile:js']);
-});*/
-
 gulp.task('watch:compile:sass', ['compile:sass'], () => {
     gulp.watch('./app/**/*.scss', ['compile:sass']);
 });
@@ -69,12 +53,10 @@ gulp.task('watch:compile:jsx', ['compile:jsx'], () => {
 
 
 
-
 /**
  * Run tasks
  */
 gulp.task('dev', [
-    //'watch:compile:js',
     'watch:compile:sass',
     'watch:compile:jsx'
 ], () => {

@@ -7,7 +7,8 @@ var ADD = 'ADD_COLLECTION_EXERCISE',
     SAVED = 'SAVED_COLLECTION_EXERCISE',
     RECEIVE_SINGLE = 'REQUEST_COLLECTION_EXERCISE_DETAILS',
     FILTER = 'FILTER_COLLECTION_EXERCISE',
-    STORE_UPDATE = 'STORE_UPDATE_COLLECTION_EXERCISE';
+    STORE_UPDATE = 'STORE_UPDATE_COLLECTION_EXERCISE',
+    STORE_ADD = 'STORE_ADD_COLLECTION_EXERCISE';
 
 function addCollectionExercises () {
 
@@ -127,6 +128,15 @@ function storeUpdateCollectionExercise (collectionExercise) {
 
 }
 
+function storeAddCollectionExercise (collectionExercise) {
+
+    return {
+        type: STORE_ADD,
+        collectionExercise: collectionExercise
+    };
+
+}
+
 function changeCollectionExerciseState (id, state) {
 
     return function (dispatch) {
@@ -161,6 +171,7 @@ module.exports = {
     TOGGLE_PERIOD: changeCollectionExercisesPeriod,
 
     STORE_UPDATE: storeUpdateCollectionExercise,
+    STORE_ADD: storeAddCollectionExercise,
 
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,

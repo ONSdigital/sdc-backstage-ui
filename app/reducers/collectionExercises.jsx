@@ -28,6 +28,16 @@ function collectionExercisesReducer (state, action) {
 					return collectionExercise;
 				})
 			});
+		case 'STORE_ADD_COLLECTION_EXERCISE':
+			var newItems = state.items.map(function (collectionExercise) {
+				return collectionExercise;
+			});
+
+			newItems.push(action.collectionExercise);
+
+			return assign({}, state, {
+				items: newItems
+			});
 		default:
 			return assign({}, state);
 	}
