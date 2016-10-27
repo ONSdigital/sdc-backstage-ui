@@ -120,13 +120,7 @@ function mapDispatchToProps (dispatch) {
 			.then(function (data) {
 				appStore.dispatch(CollectionExercisesActions.STORE_ADD(data[0]));
 				locationActions.change('/collection-exercises/details/'+data[0].id);
-
-				/*appStore.dispatch(CollectionExercisesActions.REQUEST_ALL());
-				appStore.dispatch(CollectionExercisesActions.FETCH_ALL())
-					.then(function () {
-						locationActions.change('/collection-exercises');
-						dispatch(uiActions.RESET_ADD_COLLECTION_EXERCISE());
-					});*/
+				dispatch(uiActions.RESET_ADD_COLLECTION_EXERCISE());
 			});
         },
 
