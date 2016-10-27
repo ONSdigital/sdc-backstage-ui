@@ -43,6 +43,7 @@ module.exports = function () {
 								<button style={toggle(this.props.details.state === 'scheduled')} className="btn btn-primary">[Set as Ready for sample]</button>
 								<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onStateChangeClicked.bind(this, 'published')} className="btn btn-primary">Publish</button>
 								<button style={toggle(this.props.details.state === 'published')} onClick={this.props.onStateChangeClicked.bind(this, 'live')} className="btn btn-primary">Go Live</button>
+								<button style={toggle(this.props.details.state === 'live')} onClick={this.props.onStateChangeClicked.bind(this, 'closed')} className="btn btn-primary">Close</button>
 								<br />
 							</div>
 						</div>
