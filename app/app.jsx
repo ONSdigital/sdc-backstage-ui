@@ -91,10 +91,8 @@ jQuery.ajax('/config.json',
     appStore.dispatch(surveyActions.REQUEST());
     appStore.dispatch(surveyActions.FETCH())
         .then(function () {
-            setTimeout(function () {
-                appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
-                appStore.dispatch(collectionExerciseActions.FETCH_ALL());
-            },1);
+            appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
+            appStore.dispatch(collectionExerciseActions.FETCH_ALL());
         });
 
     if(res.env === 'dev') {

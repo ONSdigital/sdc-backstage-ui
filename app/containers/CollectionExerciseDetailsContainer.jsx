@@ -31,17 +31,23 @@ function mapStateToProps (state, ownProps) {
 function mapDispatchToProps (dispatch, ownProps) {
 	return {
 		onStateChangeClicked: function (state) {
-			dispatch(CollectionExercisesActions.CHANGE_COLLECTION_EXERCISE_STATE(ownProps.params.id, state))
-				.then(function () {
-					appStore.dispatch(CollectionExercisesActions.FETCH_ALL());
-				});
+			dispatch(CollectionExercisesActions.CHANGE_COLLECTION_EXERCISE_STATE(
+				ownProps.params.id, state
+			))
+			.then(function (data) {
+				dispatch(CollectionExercisesActions.STORE_UPDATE(data));
+			});
 		},
 
 		onSamplesUploadClicked: function () {
 			dispatch(CollectionExercisesActions.UPLOAD_COLLECTION_EXERCISE_SAMPLE({
 				collectionExerciseId: ownProps.params.id,
 				formData: new FormData($('#samples-form')[0])
-			}));
+			}))
+			.then(function (data) {
+				dispatch(CollectionExercisesActions.STORE_UPDATE(data));
+			});
+
 		}
 	};
 }

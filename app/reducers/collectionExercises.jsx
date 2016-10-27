@@ -17,6 +17,17 @@ function collectionExercisesReducer (state, action) {
 				isFetching: false,
 				items: action.collectionExercises
 			});
+		case 'STORE_UPDATE_COLLECTION_EXERCISE':
+			return assign({}, state, {
+				items: state.items.map(function (collectionExercise) {
+
+					if (collectionExercise.id === action.collectionExercise.id) {
+						return assign({}, collectionExercise, action.collectionExercise);
+					}
+
+					return collectionExercise;
+				})
+			});
 		default:
 			return assign({}, state);
 	}

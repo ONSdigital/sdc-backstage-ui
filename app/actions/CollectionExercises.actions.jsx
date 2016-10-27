@@ -6,7 +6,8 @@ var ADD = 'ADD_COLLECTION_EXERCISE',
     REQUEST_ALL = 'REQUEST_ALL_COLLECTION_EXERCISES',
     SAVED = 'SAVED_COLLECTION_EXERCISE',
     RECEIVE_SINGLE = 'REQUEST_COLLECTION_EXERCISE_DETAILS',
-    FILTER = 'FILTER_COLLECTION_EXERCISE';
+    FILTER = 'FILTER_COLLECTION_EXERCISE',
+    STORE_UPDATE = 'STORE_UPDATE_COLLECTION_EXERCISE';
 
 function addCollectionExercises () {
 
@@ -117,6 +118,15 @@ function uploadCollectionExerciseSample (id, formData) {
 
 }
 
+function storeUpdateCollectionExercise (collectionExercise) {
+
+    return {
+        type: STORE_UPDATE,
+        collectionExercise: collectionExercise
+    };
+
+}
+
 function changeCollectionExerciseState (id, state) {
 
     return function (dispatch) {
@@ -149,6 +159,8 @@ module.exports = {
      * should this be here?
      */
     TOGGLE_PERIOD: changeCollectionExercisesPeriod,
+
+    STORE_UPDATE: storeUpdateCollectionExercise,
 
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,
