@@ -92,7 +92,10 @@ jQuery.ajax('/config.json',
     appStore.dispatch(surveyActions.FETCH())
         .then(function () {
             appStore.dispatch(collectionExerciseActions.REQUEST_ALL());
-            appStore.dispatch(collectionExerciseActions.FETCH_ALL());
+            appStore.dispatch(collectionExerciseActions.FETCH_ALL())
+                .then(function () {
+                    setupApp();
+                });
         });
 
     if(res.env === 'dev') {
@@ -103,39 +106,38 @@ jQuery.ajax('/config.json',
             //$(document).append('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
         });
     }
+});
 
+function setupApp () {
 
     /**
      * Boot
      */
-    jQuery(document).ready(function () {
+    render(
+        <Provider store={appStore}>
+            <Router history={history}>
+                <Route component={MainLayout}>
+                    <Route path="/" component={pageState.default} />
 
-        render(
-            <Provider store={appStore}>
-                <Router history={history}>
-                    <Route component={MainLayout}>
-                        <Route path="/" component={pageState.default} />
+                    /**
+                     * API
+                     */
+                    <Route path="collection-exercises" component={CollectionExerciseListContainer} />
+                    <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
+                    <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
 
-                        /**
-                         * API
-                         */
-                        <Route path="collection-exercises" component={CollectionExerciseListContainer} />
-                        <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
-                        <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
+                    /**
+                     * UI
+                     */
+                    <Route path="ui/collection-exercise/scheduled" component={FakeCollectionExerciseDetailsContainer_Scheduled} />
+                    <Route path="ui/collection-exercise/sample-loaded" component={FakeCollectionExerciseDetailsContainer_SampleLoaded} />
+                    <Route path="ui/collection-exercise/published" component={FakeCollectionExerciseDetailsContainer_Published} />
+                    <Route path="ui/collection-exercise/live" component={FakeCollectionExerciseDetailsContainer_Live} />
+                </Route>
+                <Route path="*" component={NoMatchLayout} />
+            </Router>
+        </Provider>,
 
-                        /**
-                         * UI
-                         */
-                        <Route path="ui/collection-exercise/scheduled" component={FakeCollectionExerciseDetailsContainer_Scheduled} />
-                        <Route path="ui/collection-exercise/sample-loaded" component={FakeCollectionExerciseDetailsContainer_SampleLoaded} />
-                        <Route path="ui/collection-exercise/published" component={FakeCollectionExerciseDetailsContainer_Published} />
-                        <Route path="ui/collection-exercise/live" component={FakeCollectionExerciseDetailsContainer_Live} />
-                    </Route>
-                    <Route path="*" component={NoMatchLayout} />
-                </Router>
-            </Provider>,
+        document.getElementById('app'));
 
-            document.getElementById('app'));
-
-    });
-});
+}
