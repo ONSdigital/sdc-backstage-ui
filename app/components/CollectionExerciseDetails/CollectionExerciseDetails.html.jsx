@@ -68,14 +68,19 @@ module.exports = function () {
 
 								<h4>Dates</h4>
 								<ul className="details-list">
-									{this.props.details['key_dates'].map(function (item, i) {
+									<li>
+										<label>{this.props.details['key_dates'].employment_date.description}</label>
+										<strong></strong>
+									</li>
+
+									{/*{this.props.details['key_dates'].map(function (item, i) {
 										return (
 											<li key={i} className="row details-list-item">
 												<label className="col-xs-12 col-sm-6 title">{item.description}</label>
 												<strong className="col-xs-12 col-sm-6 detail">{moment(item.date).format('Do MMM YYYY')}</strong>
 											</li>
 										);
-									})}
+									})}*/}
 								</ul>
 								<ul className="details-list">
 									<li className="row details-list-item">
