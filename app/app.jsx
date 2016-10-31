@@ -103,10 +103,19 @@ jQuery.ajax('/config.json',
         //document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
 
         jQuery(document).ready(function () {
-            //$(document).append('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+            $(document).append('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
         });
     }
 });
+
+function getCollectionExerciseDetails (nextState, replace, callback) {
+
+    appStore.dispatch(collectionExerciseActions.FETCH(nextState.params.id))
+        .then(function () {
+            callback();
+        });
+
+}
 
 function setupApp () {
 
@@ -124,7 +133,7 @@ function setupApp () {
                      */
                     <Route path="collection-exercises" component={CollectionExerciseListContainer} />
                     <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
-                    <Route path="collection-exercises/details/:id" component={CollectionExerciseDetailsContainer} />
+                    <Route path="collection-exercises/details/:id" onEnter={getCollectionExerciseDetails} component={CollectionExerciseDetailsContainer} />
 
                     /**
                      * UI

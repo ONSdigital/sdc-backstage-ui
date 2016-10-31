@@ -1,5 +1,5 @@
 {
-  "name": "sdc-business-home",
+  "name": "sdc-backstage-ui",
   "version": "0.0.0",
   "description": "SDC Business Home",
   "main": "gulpfile.js",

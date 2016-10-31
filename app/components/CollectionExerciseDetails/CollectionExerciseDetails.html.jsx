@@ -40,10 +40,6 @@ module.exports = function () {
 							<div className="col-xs-12">
 								<h4>Status: <strong>{collectionExerciseFilters.getPrettyStatus(this.props.details.state)}</strong></h4>
 								<p style={toggle(this.props.details.state === 'live')}><a href="">[View reminder settings]</a></p>
-								<button style={toggle(this.props.details.state === 'scheduled')} className="btn btn-primary">[Set as Ready for sample]</button>
-								<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onStateChangeClicked.bind(this, 'published')} className="btn btn-primary">Publish</button>
-								<button style={toggle(this.props.details.state === 'published')} onClick={this.props.onStateChangeClicked.bind(this, 'live')} className="btn btn-primary">Go Live</button>
-								<button style={toggle(this.props.details.state === 'live')} onClick={this.props.onStateChangeClicked.bind(this, 'closed')} className="btn btn-primary">Close</button>
 								<br />
 							</div>
 						</div>
@@ -110,40 +106,6 @@ module.exports = function () {
 									<br />
 								</div>
 
-								<div style={toggle(this.props.details.state === 'scheduled' || this.props.details.state === 'sample_loaded')}>
-
-									<h4>Current Samples</h4>
-									{/*<ul className="details-list" style={toggle(this.props.details.samples.length)}>
-										<li className="row details-list-item">
-											<strong className="col-xs-4 title">RU Reference</strong>
-											<strong className="col-xs-4 title">Business Name</strong>
-											<strong className="col-xs-4 title">Form Type</strong>
-										</li>
-										{this.props.details.samples.map(function (item) {
-											return (
-												<li key={item.id} className="row details-list-item">
-													<strong className="col-xs-4 detail">{item['reporting_unit_ref']}:</strong>
-													<strong className="col-xs-4 detail">{item['business_name']}</strong>
-													<strong className="col-xs-4 detail">{item['form_type']}</strong>
-												</li>
-											);
-										})}
-									</ul>*/}
-									<ul className="details-list">
-										<li className="details-list-item">
-											<form id="samples-form">
-												<input name="samples_csv_file" accept=".csv" type="file" />
-											</form>
-										</li>
-									</ul>
-									<ul className="details-list">
-										<li className="details-list-item">
-											<button onClick={this.props.onSamplesUploadClicked} className="btn btn-info">Upload and Save</button>
-										</li>
-									</ul>
-									<br />
-								</div>
-
 								<h4 className="fade">Question Sets</h4>
 								<ul className="details-list">
 									<li className="row details-list-item">
@@ -175,6 +137,47 @@ module.exports = function () {
 					</div>
 
 				</section>
+
+				<div style={{marginBottom : '50px'}}>
+					<div style={toggle(this.props.details.state === 'scheduled')}>
+
+						<h4>Current Samples</h4>
+						{/*<ul className="details-list" style={toggle(this.props.details.samples.length)}>
+						 <li className="row details-list-item">
+						 <strong className="col-xs-4 title">RU Reference</strong>
+						 <strong className="col-xs-4 title">Business Name</strong>
+						 <strong className="col-xs-4 title">Form Type</strong>
+						 </li>
+						 {this.props.details.samples.map(function (item) {
+						 return (
+						 <li key={item.id} className="row details-list-item">
+						 <strong className="col-xs-4 detail">{item['reporting_unit_ref']}:</strong>
+						 <strong className="col-xs-4 detail">{item['business_name']}</strong>
+						 <strong className="col-xs-4 detail">{item['form_type']}</strong>
+						 </li>
+						 );
+						 })}
+						 </ul>*/}
+						<ul className="details-list">
+							<li className="details-list-item">
+								<form id="samples-form">
+									<input name="samples_csv_file" accept=".csv" type="file" />
+								</form>
+							</li>
+						</ul>
+						<ul className="details-list">
+							<li className="details-list-item">
+								<button onClick={this.props.onSamplesUploadClicked} className="btn btn-info">Upload and Save</button>
+							</li>
+						</ul>
+						<br />
+					</div>
+					{/*<button style={toggle(this.props.details.state === 'scheduled')} className="btn btn-primary">[Set as Ready for sample]</button>*/}
+					<button style={toggle(this.props.details.state === 'sample_loaded')} onClick={this.props.onStateChangeClicked.bind(this, 'published')} className="btn btn-primary">Publish</button>
+					<button style={toggle(this.props.details.state === 'published')} onClick={this.props.onStateChangeClicked.bind(this, 'live')} className="btn btn-primary">Go Live</button>
+					<button style={toggle(this.props.details.state === 'live')} onClick={this.props.onStateChangeClicked.bind(this, 'closed')} className="btn btn-primary">Close</button>
+				</div>
+
 			</div>
 		</div>
 	);
