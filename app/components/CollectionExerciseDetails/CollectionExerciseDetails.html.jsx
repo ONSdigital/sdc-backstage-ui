@@ -68,28 +68,43 @@ module.exports = function () {
 
 								<h4>Dates</h4>
 								<ul className="details-list">
-									<li>
-										<label>{this.props.details['key_dates'].employment_date.description}</label>
-										<strong></strong>
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].employment_date.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].employment_date.date).format('Do MMM YYYY')}</strong>
 									</li>
-
-									{/*{this.props.details['key_dates'].map(function (item, i) {
-										return (
-											<li key={i} className="row details-list-item">
-												<label className="col-xs-12 col-sm-6 title">{item.description}</label>
-												<strong className="col-xs-12 col-sm-6 detail">{moment(item.date).format('Do MMM YYYY')}</strong>
-											</li>
-										);
-									})}*/}
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].exercise_end.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].exercise_end.date).format('Do MMM YYYY')}</strong>
+									</li>
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].exercise_go_live.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].exercise_go_live.date).format('Do MMM YYYY')}</strong>
+									</li>
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].first_reminder.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].first_reminder.date).format('Do MMM YYYY')}</strong>
+									</li>
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].mps.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].mps.date).format('Do MMM YYYY')}</strong>
+									</li>
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].results_run.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].results_run.date).format('Do MMM YYYY')}</strong>
+									</li>
+									<li className="row details-list-item">
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].return_by.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].return_by.date).format('Do MMM YYYY')}</strong>
+									</li>
 								</ul>
 								<ul className="details-list">
 									<li className="row details-list-item">
-										<label className="col-xs-12 col-sm-6 title">Reference period start</label>
-										<strong className="col-xs-12 col-sm-6 detail">[3rd Jan 2017]</strong>
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].reporting_period_start.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].reporting_period_start.date).format('Do MMM YYYY')}</strong>
 									</li>
 									<li className="row details-list-item">
-										<label className="col-xs-12 col-sm-6 title">Reference period end</label>
-										<strong className="col-xs-12 col-sm-6 detail">[2nd Feb 2017]</strong>
+										<label className="col-xs-12 col-sm-6 title">{this.props.details['key_dates'].reporting_period_end.description}</label>
+										<strong className="col-xs-12 col-sm-6 detail">{moment(this.props.details['key_dates'].reporting_period_end.date).format('Do MMM YYYY')}</strong>
 									</li>
 								</ul>
 							</div>
