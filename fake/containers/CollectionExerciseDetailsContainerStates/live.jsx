@@ -2,7 +2,7 @@ var Redux = require('react-redux'),
 
 	assign = require('object-assign'),
 
-	CollectionExerciseDetailsComponent = require('../../../app/components/CollectionExerciseDetails/CollectionExerciseDetails.comp.jsx'),
+	CollectionExerciseDetailsComponent = require('../../../app/components/CollectionExerciseDetailsPage/CollectionExerciseDetailsPage.comp.jsx'),
 	stub = require('./stub.jsx'),
 	stubDispatch = require('./stub-dispatch.jsx');
 

@@ -1,7 +1,7 @@
 var CollectionExerciseDetails = React.createClass({
 
 	render: function () {
-		return require('./CollectionExerciseDetails.html.jsx').bind(this)();
+		return require('./CollectionExerciseDetailsPage.html.jsx').bind(this)();
 	},
 
 });

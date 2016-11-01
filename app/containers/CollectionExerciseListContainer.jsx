@@ -4,7 +4,7 @@ var Redux = require('react-redux'),
 
 	locationActions = require('../actions/Location.actions.jsx'),
 	CollectionExercisesActions = require('../actions/CollectionExercises.actions.jsx'),
-	CollectionExerciseListComponent = require('../components/CollectionExerciseList/CollectionExerciseList.comp.jsx');
+	CollectionExerciseListComponent = require('../components/CollectionExerciseListPage/CollectionExerciseListPage.comp.jsx');
 
 function mapStateToProps (state) {
 	return {

@@ -4,7 +4,7 @@ var Redux = require('react-redux'),
 	appStore = require('../stores/backstage.store.jsx'),
     CollectionExercisesActions = require('../actions/CollectionExercises.actions.jsx'),
 	uiActions = require('../actions/UI.actions.jsx'),
-    AddCollectionExercisesComponent = require('../components/AddCollectionExercises/AddCollectionExercises.comp.jsx');
+    AddCollectionExercisesComponent = require('../components/AddCollectionExercisesPage/AddCollectionExercisesPage.comp.jsx');
 
 
 var createReportingUnitOption = function (value, title) {

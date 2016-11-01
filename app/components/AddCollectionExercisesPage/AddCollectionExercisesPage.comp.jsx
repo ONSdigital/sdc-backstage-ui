@@ -1,7 +1,7 @@
 var AddCollectionExercisesComponent = React.createClass({
 
     render: function () {
-        return require('./AddCollectionExercises.html.jsx').bind(this)();
+        return require('./AddCollectionExercisesPage.html.jsx').bind(this)();
     },
 
 });

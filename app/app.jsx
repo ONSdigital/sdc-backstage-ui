@@ -48,7 +48,7 @@ var history = syncHistoryWithStore(browserHistory, appStore);
 
 var pageState = {
 
-        tempHub: function () {
+        start: function () {
             return (
                 <div>
                     <PageTitleComponent title="SDC Backstage UI Prototype" />
@@ -67,8 +67,21 @@ var pageState = {
             );
         },
 
+        home: function () {
+            return (
+                <div>
+                    <PageTitleComponent title="ONS Business Surveys" />
+                    <section className="home-page-component">
+                        <div className="container">
+                            <h1>fwrkg</h1>
+                        </div>
+                    </section>
+                </div>
+            );
+        },
+
         default: function () {
-            return pageState.tempHub();
+            return pageState.home();
         }
     };
 
@@ -133,6 +146,8 @@ function setupApp () {
             <Router history={history}>
                 <Route component={MainLayout}>
                     <Route path="/" component={pageState.default} />
+
+                    <Route path="start" component={pageState.start} />
 
                     /**
                      * API

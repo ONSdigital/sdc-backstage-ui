@@ -43,7 +43,7 @@ module.exports = function () {
 
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <Link to={'/'}>Back to start</Link>
+                            <Link to={'/'}>Home</Link>
                         </li>
                         <li className="breadcrumb-item">
                             <Link to={'/collection-exercises'}>Collection Exercises</Link>
