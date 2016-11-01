@@ -108,12 +108,18 @@ jQuery.ajax('/config.json',
     }
 });
 
-function getCollectionExerciseDetails (nextState, replace, callback) {
+function getCollectionExerciseDetailsMiddleware (nextState, replace, callback) {
 
     appStore.dispatch(collectionExerciseActions.FETCH(nextState.params.id))
         .then(function () {
             callback();
         });
+
+}
+
+function collectionExerciseListMiddleware (nextState, replace) {
+
+    appStore.dispatch(collectionExerciseActions.UI_FILTER('live'));
 
 }
 
@@ -131,9 +137,9 @@ function setupApp () {
                     /**
                      * API
                      */
-                    <Route path="collection-exercises" component={CollectionExerciseListContainer} />
+                    <Route path="collection-exercises" onEnter={collectionExerciseListMiddleware} component={CollectionExerciseListContainer} />
                     <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
-                    <Route path="collection-exercises/details/:id" onEnter={getCollectionExerciseDetails} component={CollectionExerciseDetailsContainer} />
+                    <Route path="collection-exercises/details/:id" onEnter={getCollectionExerciseDetailsMiddleware} component={CollectionExerciseDetailsContainer} />
 
                     /**
                      * UI

@@ -46,25 +46,6 @@ module.exports = function () {
 
 						<div className="row">
 							<div className="col-xs-12 col-sm-6">
-								<div style={toggle(this.props.details.state === 'live')}>
-									<h4>Responses: [361 of 4971 = 7% (target 83%)]</h4>
-									<ul className="details-list">
-										<li className="row details-list-item">
-											<label className="col-xs-12 col-sm-6 title">Started online</label>
-											<strong className="col-xs-12 col-sm-6 detail">23</strong>
-										</li>
-										<li className="row details-list-item">
-											<label className="col-xs-12 col-sm-6 title">Completed online</label>
-											<strong className="col-xs-12 col-sm-6 detail">338</strong>
-										</li>
-										<li className="row details-list-item">
-											<label className="col-xs-12 col-sm-6 title">Completed paper</label>
-											<strong className="col-xs-12 col-sm-6 detail">23</strong>
-										</li>
-									</ul>
-									<br />
-								</div>
-
 
 								<h4>Dates</h4>
 								<ul className="details-list">
@@ -110,20 +91,28 @@ module.exports = function () {
 							</div>
 							<div className="col-xs-12 col-sm-6">
 
-								<div style={toggle(this.props.details.state === 'sample_loaded' || this.props.details.state === 'published' || this.props.details.state === 'live')}>
-									<h4>Sample</h4>
-									<p><a href="">[4123] Reporting Units</a></p>
-
-									<h5><strong>Sub Samples</strong></h5>
+								<div style={toggle(this.props.details.state === 'live')}>
+									<h4>Responses: [361 of 4971 = 7% (target 83%)]</h4>
 									<ul className="details-list">
-										<li className="details-list-item">
-											Sample
+										<li className="row details-list-item">
+											<label className="col-xs-12 col-sm-6 title">Started online</label>
+											<strong className="col-xs-12 col-sm-6 detail">23</strong>
 										</li>
-										<li className="details-list-item">
-											Sample
+										<li className="row details-list-item">
+											<label className="col-xs-12 col-sm-6 title">Completed online</label>
+											<strong className="col-xs-12 col-sm-6 detail">338</strong>
+										</li>
+										<li className="row details-list-item">
+											<label className="col-xs-12 col-sm-6 title">Completed paper</label>
+											<strong className="col-xs-12 col-sm-6 detail">23</strong>
 										</li>
 									</ul>
 									<br />
+								</div>
+
+								<div style={toggle(this.props.details.state === 'sample_loaded' || this.props.details.state === 'published' || this.props.details.state === 'live')}>
+									<h4>Sample</h4>
+									<p><a href="">[4123] Reporting Units</a></p>
 								</div>
 
 								<h4 className="fade">Question Sets</h4>

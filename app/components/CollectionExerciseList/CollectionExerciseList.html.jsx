@@ -32,9 +32,9 @@ module.exports = function () {
 							<div className="tabs">
 								<button onClick={this.props.onCollectionFilterClick.bind(this, 'live')} className={tabClass('live')}>Live</button>
 								<button onClick={this.props.onCollectionFilterClick.bind(this, 'scheduled')} className={tabClass('scheduled')}>Scheduled</button>
-								<button onClick={this.props.onCollectionFilterClick.bind(this, 'sample_loaded')} className={tabClass('sample_loaded')}>Sample loaded</button>
+								{/*<button onClick={this.props.onCollectionFilterClick.bind(this, 'sample_loaded')} className={tabClass('sample_loaded')}>Sample loaded</button>
 								<button onClick={this.props.onCollectionFilterClick.bind(this, 'published')} className={tabClass('published')}>Published</button>
-								<button onClick={this.props.onCollectionFilterClick.bind(this, 'closed')} className={tabClass('closed')}>Closed</button>
+								<button onClick={this.props.onCollectionFilterClick.bind(this, 'closed')} className={tabClass('closed')}>Closed</button>*/}
 								<button onClick={this.props.onCollectionFilterClick.bind(this, '')} className={tabClass('')}>All</button>
 							</div>
 							<button onClick={this.props.onAddCollectionExerciseClick} className="btn btn-primary add-btn">Add collection exercise(s)</button>

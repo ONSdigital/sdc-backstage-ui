@@ -2,28 +2,44 @@ module.exports = {
 	details: {
 		survey_title: 'MWSS - January 2017',
 		state: '',
-		key_dates: [
-			{
-				description: 'Main print selection',
-				date: '2017-01-22'
+		key_dates: {
+			"employment_date": {
+				"date": "2019-01-09",
+				"description": "Employment date"
 			},
-			{
-				description: 'Exercise go live',
-				date: '2017-02-03'
+			"exercise_end": {
+				"date": "2020-01-31",
+				"description": "Exercise end"
 			},
-			{
-				description: 'First reminder',
-				date: '2017-02-17'
+			"exercise_go_live": {
+				"date": "2019-12-28",
+				"description": "Exercise go live"
 			},
-			{
-				description: 'Second reminder',
-				date: '2017-02-24'
+			"first_reminder": {
+				"date": "2020-01-10",
+				"description": "First reminder"
 			},
-			{
-				description: 'Return by',
-				date: '2017-02-28'
+			"mps": {
+				"date": "2019-12-23",
+				"description": "Main Print Selection (MPS)"
+			},
+			"reporting_period_end": {
+				"date": "2020-01-01",
+				"description": "Reporting period end"
+			},
+			"reporting_period_start": {
+				"date": "2018-12-28",
+				"description": "Reporting period start"
+			},
+			"results_run": {
+				"date": "2020-01-14",
+				"description": "Results run"
+			},
+			"return_by": {
+				"date": "2020-01-08",
+				"description": "Return by"
 			}
-		],
+		},
 		samples: []
 	},
 	survey: {
