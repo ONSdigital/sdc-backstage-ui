@@ -40,41 +40,44 @@ module.exports = function () {
             <section className="add-collection-exercises-component">
 
                 <div className="container">
+                    <div className="row">
 
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item">
-                            <Link to={'/'}>Home</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <Link to={'/collection-exercises'}>Collection Exercises</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <span>Add Collection Exercise(s)</span>
-                        </li>
-                    </ol>
-
-                    <div className="page-header">
-                        <h2>Add Collection Excercises</h2>
-                    </div>
-
-                    <div className="form-container">
-
-                        <ul className="field-list">
-                            <li className="field-list-item">
-                                <h4 className="title">Part of Survey</h4>
-                                <select id="add-collection-exercises-dropdown" className="select-dropdown" onChange={this.props.onSurveyListOptionChange}>
-                                    <option value="none">-</option>
-                                    {this.props.surveyList.map(function (item) {
-                                        return (
-                                            <option data-frequency={item.frequency} key={item.value} value={item.value}>{item.title}</option>
-                                        );
-                                    }.bind(this))}
-                                </select>
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item">
+                                <Link to={'/'}>Home</Link>
                             </li>
-                            {reportingUnitItem()}
-                        </ul>
+                            <li className="breadcrumb-item">
+                                <Link to={'/collection-exercises'}>Collection Exercises</Link>
+                            </li>
+                            <li className="breadcrumb-item">
+                                <span>Add Collection Exercise(s)</span>
+                            </li>
+                        </ol>
 
-                        <input disabled={!this.props.selectedReportingPeriodOptions.length ? 'disabled' : ''} className="btn btn-primary btn-large" onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
+                        <div className="page-header">
+                            <h2>Add Collection Excercises</h2>
+                        </div>
+
+                        <div className="form-container">
+
+                            <ul className="field-list">
+                                <li className="field-list-item">
+                                    <h4 className="title">Part of Survey</h4>
+                                    <select id="add-collection-exercises-dropdown" className="select-dropdown" onChange={this.props.onSurveyListOptionChange}>
+                                        <option value="none">-</option>
+                                        {this.props.surveyList.map(function (item) {
+                                            return (
+                                                <option data-frequency={item.frequency} key={item.value} value={item.value}>{item.title}</option>
+                                            );
+                                        }.bind(this))}
+                                    </select>
+                                </li>
+                                {reportingUnitItem()}
+                            </ul>
+
+                            <input disabled={!this.props.selectedReportingPeriodOptions.length ? 'disabled' : ''} className="btn btn-primary btn-large" onClick={this.props.onSaveClicked} type="submit" value="Save and continue" />
+                        </div>
+
                     </div>
                 </div>
 

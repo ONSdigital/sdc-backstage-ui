@@ -106,9 +106,18 @@ body {
 }
 
 .breadcrumb {
-    margin-top : .5em;
-
+    margin-top : .5rem;
+    margin-bottom : 1rem;
     background-color : #fff;
+}
+
+.search-wrap {
+    padding-bottom : 1rem;
+    margin-bottom : 1rem;
+
+    .search {
+        max-width : 400px;
+    }
 }
 
 /**

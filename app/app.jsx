@@ -14,6 +14,7 @@ var Provider = require('react-redux').Provider,
     AddCollectionExercisesContainer = require('./containers/AddCollectionExercisesContainer.jsx'),
     CollectionExerciseListContainer = require('./containers/CollectionExerciseListContainer.jsx'),
     CollectionExerciseDetailsContainer = require('./containers/CollectionExerciseDetailsContainer.jsx'),
+    HomeContainer = require('./containers/HomeContainer.jsx'),
 
     /**
      * Actions
@@ -78,10 +79,6 @@ var pageState = {
                     </section>
                 </div>
             );
-        },
-
-        default: function () {
-            return pageState.home();
         }
     };
 
@@ -136,6 +133,12 @@ function collectionExerciseListMiddleware (nextState, replace) {
 
 }
 
+function homeMiddleware (nextState, replace) {
+
+    appStore.dispatch(collectionExerciseActions.UI_FILTER('live'));
+
+}
+
 function setupApp () {
 
     /**
@@ -145,7 +148,7 @@ function setupApp () {
         <Provider store={appStore}>
             <Router history={history}>
                 <Route component={MainLayout}>
-                    <Route path="/" component={pageState.default} />
+                    <Route path="/" onEnter={homeMiddleware} component={HomeContainer} />
 
                     <Route path="start" component={pageState.start} />
 

@@ -31,9 +31,9 @@
 // Components
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
 /*@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
-@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/navs";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
@@ -68,9 +68,15 @@
  * Components
  */
 @import "./components/shared/PageTitle/PageTitle";
-@import "components/AddCollectionExercisesPage/AddCollectionExercisesPage";
-@import "components/CollectionExerciseListPage/CollectionExerciseListPage";
-@import "components/CollectionExerciseDetailsPage/CollectionExerciseDetailsPage";
+@import "./components/shared/CollectionExerciseList/CollectionExerciseList";
+
+/**
+ * Page components
+ */
+@import "./components/HomePage/HomePage";
+@import "./components/AddCollectionExercisesPage/AddCollectionExercisesPage";
+@import "./components/CollectionExerciseListPage/CollectionExerciseListPage";
+@import "./components/CollectionExerciseDetailsPage/CollectionExerciseDetailsPage";
 
 
 /**
