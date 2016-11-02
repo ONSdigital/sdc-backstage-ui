@@ -3,7 +3,6 @@ var Redux = require('react-redux'),
 	collectionExerciseMappings = require('../mappings/collectionExercises.jsx'),
 
 	locationActions = require('../actions/Location.actions.jsx'),
-	CollectionExercisesActions = require('../actions/CollectionExercises.actions.jsx'),
 	CollectionExerciseListComponent = require('../components/CollectionExerciseListPage/CollectionExerciseListPage.comp.jsx');
 
 function mapStateToProps (state) {
@@ -26,7 +25,7 @@ function mapDispatchToProps (dispatch) {
 		},
 
 		onCollectionFilterClick: function (status, e) {
-			dispatch(CollectionExercisesActions.UI_FILTER(status));
+			locationActions.change('/collection-exercises/' + status);
 		}
 	};
 }

@@ -3692,8 +3692,7 @@ body {
   background-color: #ebf0f2; }
 
 .page-header {
-  margin-top: 0;
-  margin-bottom: 0; }
+  margin: 0 15px; }
 
 .page-title-container {
   background-color: #3a4b52; }
@@ -3745,11 +3744,13 @@ body {
 .breadcrumb {
   margin-top: .5rem;
   margin-bottom: 1rem;
-  background-color: #fff; }
+  background: none;
+  border: 1px solid #ddd; }
 
 .search-wrap {
   padding-bottom: 1rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  border: 1px solid #eee; }
   .search-wrap .search {
     max-width: 400px; }
 

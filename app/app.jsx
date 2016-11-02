@@ -129,7 +129,16 @@ function getCollectionExerciseDetailsMiddleware (nextState, replace, callback) {
 
 function collectionExerciseListMiddleware (nextState, replace) {
 
-    appStore.dispatch(collectionExerciseActions.UI_FILTER('live'));
+	if (!nextState.params.status) {
+		appStore.dispatch(collectionExerciseActions.UI_FILTER('live'));
+		return;
+	}
+
+	if (nextState.params.status && nextState.params.status === 'all') {
+		appStore.dispatch(collectionExerciseActions.UI_FILTER(''));
+	}
+
+	appStore.dispatch(collectionExerciseActions.UI_FILTER(nextState.params.status));
 
 }
 
@@ -158,6 +167,8 @@ function setupApp () {
                     <Route path="collection-exercises" onEnter={collectionExerciseListMiddleware} component={CollectionExerciseListContainer} />
                     <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
                     <Route path="collection-exercises/details/:id" onEnter={getCollectionExerciseDetailsMiddleware} component={CollectionExerciseDetailsContainer} />
+
+					<Route path="collection-exercises/:status" onEnter={collectionExerciseListMiddleware} component={CollectionExerciseListContainer} />
 
                     /**
                      * UI
