@@ -31,9 +31,8 @@ function collectionExercisesReducer (state, action) {
 		case 'STORE_ADD_COLLECTION_EXERCISE':
 			var newItems = state.items.map(function (collectionExercise) {
 				return collectionExercise;
-			});
-
-			newItems.push(action.collectionExercise);
+			})
+			.concat(action.collectionExercises);
 
 			return assign({}, state, {
 				items: newItems

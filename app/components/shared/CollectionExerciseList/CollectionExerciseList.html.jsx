@@ -34,10 +34,10 @@ module.exports = function () {
 						<table>
 							<thead>
 								<tr className="table-header">
-									<th><strong>Survey Reference</strong></th>
-									<th><strong>Survey</strong></th>
-									<th><strong>Period</strong></th>
-									<th><strong>Status</strong></th>
+									<th className="survey-reference"><strong>Survey Ref.</strong></th>
+									<th className="survey"><strong>Survey</strong></th>
+									<th className="status"><strong>Status</strong></th>
+									<th className="period"><strong>Period</strong></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -54,8 +54,8 @@ module.exports = function () {
 											<tr key={item.id} className="t-row">
 												<td>{item.survey.reference}</td>
 												<td><Link to={'/collection-exercises/details/'+item.id}>{item.survey.name}</Link></td>
-												<td><span>{item["period"]}</span></td>
 												<td><span>{collectionExerciseFilters.getPrettyStatus(item["state"])}</span></td>
+												<td><span>{item["period"]}</span></td>
 											</tr>
 										);
 									})}

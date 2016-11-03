@@ -3642,7 +3642,15 @@ input[type="button"].btn-block {
   .collection-exercise-list-component .survey-list {
     margin-top: .5rem; }
     .collection-exercise-list-component .survey-list td {
+      vertical-align: top;
       font-size: 1rem; }
+  .collection-exercise-list-component .table-header .survey-reference {
+    width: 110px; }
+    .collection-exercise-list-component .table-header .survey-reference > strong {
+      white-space: nowrap; }
+  .collection-exercise-list-component .table-header .period,
+  .collection-exercise-list-component .table-header .status {
+    width: 140px; }
 
 /**
  * Page components
@@ -3697,6 +3705,7 @@ body {
 .page-title-container {
   background-color: #3a4b52; }
   .page-title-container .page-title-component {
+    position: relative;
     color: #fff; }
     .page-title-container .page-title-component > h1 {
       font-weight: 400; }
@@ -3746,6 +3755,8 @@ body {
   margin-bottom: 1rem;
   background: none;
   border: 1px solid #ddd; }
+  .breadcrumb > li + li::before {
+    content: "> "; }
 
 .search-wrap {
   padding-bottom: 1rem;
@@ -3753,6 +3764,51 @@ body {
   border: 1px solid #eee; }
   .search-wrap .search {
     max-width: 400px; }
+
+.pivots {
+  position: absolute;
+  right: 0;
+  top: 1.5em; }
+  .pivots > .name {
+    z-index: 10;
+    display: inline-block;
+    font-weight: normal; }
+  .page-title-container .pivots {
+    color: #fff; }
+  .pivots button.account-toggle {
+    border: none;
+    background: none; }
+  .pivots .chevron {
+    float: right;
+    margin-top: .5em;
+    margin-left: .5em; }
+
+.chevron {
+  position: relative;
+  display: block;
+  height: 16px;
+  /*height should be double border*/
+  width: 16px; }
+
+.chevron:before,
+.chevron:after {
+  position: absolute;
+  display: block;
+  content: "";
+  border: 8px solid transparent;
+  /*adjust size*/ }
+
+/*Change four 'top' values below to rotate (top/right/bottom/left)*/
+.chevron:before {
+  top: 0;
+  border-top-color: #fff;
+  /*Chevron Color*/ }
+
+.chevron:after {
+  top: -1px;
+  /*adjust thickness*/
+  border-top-color: #3a4b52;
+  /*Match background colour*/ }
 
 /**
  * Copied

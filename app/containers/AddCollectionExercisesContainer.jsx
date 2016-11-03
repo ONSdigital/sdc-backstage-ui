@@ -118,7 +118,7 @@ function mapDispatchToProps (dispatch) {
 				surveyReference: $('option:selected', $('#add-collection-exercises-dropdown')).attr('value')
 			}))
 			.then(function (data) {
-				appStore.dispatch(CollectionExercisesActions.STORE_ADD(data[0]));
+				appStore.dispatch(CollectionExercisesActions.STORE_ADD(data));
 				locationActions.change('/collection-exercises/details/'+data[0].id);
 				dispatch(uiActions.RESET_ADD_COLLECTION_EXERCISE());
 			});

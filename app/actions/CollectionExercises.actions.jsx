@@ -128,11 +128,11 @@ function storeUpdateCollectionExercise (collectionExercise) {
 
 }
 
-function storeAddCollectionExercise (collectionExercise) {
+function storeAddCollectionExercises (collectionExercises) {
 
     return {
         type: STORE_ADD,
-        collectionExercise: collectionExercise
+        collectionExercises: collectionExercises
     };
 
 }
@@ -171,7 +171,7 @@ module.exports = {
     TOGGLE_PERIOD: changeCollectionExercisesPeriod,
 
     STORE_UPDATE: storeUpdateCollectionExercise,
-    STORE_ADD: storeAddCollectionExercise,
+    STORE_ADD: storeAddCollectionExercises,
 
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,

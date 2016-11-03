@@ -5,7 +5,24 @@
         margin-top : .5rem;
 
         td {
+            vertical-align: top;
             font-size : 1rem;
+        }
+    }
+
+    .table-header {
+
+        .survey-reference {
+            width : 110px;
+
+            > strong {
+                white-space : nowrap;
+            }
+        }
+
+        .period,
+        .status {
+            width : 140px;
         }
     }
 }
