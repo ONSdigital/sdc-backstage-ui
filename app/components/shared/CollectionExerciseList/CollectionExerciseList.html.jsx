@@ -35,7 +35,7 @@ module.exports = function () {
 							<thead>
 								<tr className="table-header">
 									<th className="survey-reference"><strong>Code</strong></th>
-									<th className="survey"><strong>Title [A-Z]</strong></th>
+									<th className="survey"><strong>Title [Sort A-Z]</strong></th>
 									<th className="status"><strong>Status</strong></th>
 									<th className="period"><strong>MPS Date</strong></th>
 								</tr>

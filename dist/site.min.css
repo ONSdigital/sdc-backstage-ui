@@ -3783,6 +3783,14 @@ body {
     margin-top: .5em;
     margin-left: .5em; }
 
+.system-message-wrap {
+  background-color: #dce2e5; }
+
+.system-message {
+  display: inline-block;
+  margin-top: .2em;
+  margin-bottom: .2em; }
+
 .chevron {
   position: relative;
   display: block;
