@@ -34,10 +34,10 @@ module.exports = function () {
 						<table>
 							<thead>
 								<tr className="table-header">
-									<th className="survey-reference"><strong>Survey Ref.</strong></th>
-									<th className="survey"><strong>Survey</strong></th>
+									<th className="survey-reference"><strong>Code</strong></th>
+									<th className="survey"><strong>Title [A-Z]</strong></th>
 									<th className="status"><strong>Status</strong></th>
-									<th className="period"><strong>Period</strong></th>
+									<th className="period"><strong>MPS Date</strong></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -49,13 +49,22 @@ module.exports = function () {
 
 										return item.state === this.props.activeFilter;
 									}.bind(this))
+									.sort(function (a, b) {
+										if(a.survey.name < b.survey.name) {
+											return -1;
+										}
+										if(a.survey.name > b.survey.name) {
+											return 1;
+										}
+										return 0;
+									})
 									.map(function (item) {
 										return (
 											<tr key={item.id} className="t-row">
 												<td>{item.survey.reference}</td>
 												<td><Link to={'/collection-exercises/details/'+item.id}>{item.survey.name}</Link></td>
 												<td><span>{collectionExerciseFilters.getPrettyStatus(item["state"])}</span></td>
-												<td><span>{item["period"]}</span></td>
+												<td><span>{moment(item["key_dates"].mps.date).format('Do MMM YYYY')}</span></td>
 											</tr>
 										);
 									})}
