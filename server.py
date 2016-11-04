@@ -1,7 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import os
 
 FILE_TO_SERVE = './index.html'
-PORT = 8000
+PORT = os.getenv('PORT', 8000)
 
 
 def get_content(path: str) -> str:
