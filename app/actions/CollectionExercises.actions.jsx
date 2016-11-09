@@ -88,7 +88,7 @@ function fetchAllCollectionExercises () {
                 dispatch(receiveAllCollectionExercises(data));
                 return data;
             });
-    }
+    };
 
 }
 
@@ -101,7 +101,7 @@ function fetchCollectionExercise (id) {
                 dispatch(receiveCollectionExercise(data));
                 return data;
             });
-    }
+    };
 
 }
 
@@ -176,7 +176,7 @@ module.exports = {
     REQUEST_ALL: requestAllCollectionExercises,
     RECEIVE_ALL: receiveAllCollectionExercises,
     FETCH_ALL: fetchAllCollectionExercises,
-    
+
     FETCH: fetchCollectionExercise,
 
     SAVE_COLLECTION_EXERCISE: saveCollectionExercise,

@@ -8,9 +8,13 @@ var Redux = require('react-redux'),
 
 function mapStateToProps (state, ownProps) {
 
+	var collectionExercise =_.find(state.collectionExercises.items, function (collectionExercise) {
+		return collectionExercise.id === state.ui.collectionExercise.details.id;
+	});
+
 	return {
-		details: state.ui.collectionExercise.details,
-		survey: collectionExerciseMappings.getSurvey(state.surveys.items, state.ui.collectionExercise.details).survey
+		details: collectionExercise,
+		survey: collectionExerciseMappings.getSurvey(state.surveys.items, collectionExercise).survey
 	};
 
 }

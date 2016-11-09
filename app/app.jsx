@@ -22,6 +22,7 @@ var Provider = require('react-redux').Provider,
     surveyActions = require('./actions/Surveys.actions.jsx'),
     locationActions = require('./actions/Location.actions.jsx'),
     collectionExerciseActions = require('./actions/CollectionExercises.actions.jsx'),
+    uiActions = require('./actions/ui.actions.jsx'),
 
     /**
      * Components
@@ -118,12 +119,27 @@ jQuery.ajax('/config.json',
     }
 });
 
-function getCollectionExerciseDetailsMiddleware (nextState, replace, callback) {
+function getCollectionExerciseDetailsMiddleware (store) {
 
-    appStore.dispatch(collectionExerciseActions.FETCH(nextState.params.id))
-        .then(function () {
-            callback();
+    return function (nextState, replace, callback) {
+
+        var routerParamId = parseInt(nextState.params.id);
+
+        var collectionExerciseMatch = _.find(store.getState().collectionExercises.items, function (collectionExercise) {
+            return collectionExercise.id === routerParamId;
         });
+
+        if (!collectionExerciseMatch) {
+            appStore.dispatch(collectionExerciseActions.FETCH(routerParamId))
+                .then(function () {
+                    callback();
+                });
+        }
+        else {
+            appStore.dispatch(uiActions.SHOW_COLLECTION_EXERCISE_DETAILS(routerParamId));
+            callback();
+        }
+    };
 
 }
 
@@ -166,7 +182,7 @@ function setupApp () {
                      */
                     <Route path="collection-exercises" onEnter={collectionExerciseListMiddleware} component={CollectionExerciseListContainer} />
                     <Route path="collection-exercises/create" component={AddCollectionExercisesContainer} />
-                    <Route path="collection-exercises/details/:id" onEnter={getCollectionExerciseDetailsMiddleware} component={CollectionExerciseDetailsContainer} />
+                    <Route path="collection-exercises/details/:id" onEnter={getCollectionExerciseDetailsMiddleware(appStore)} component={CollectionExerciseDetailsContainer} />
 
 					<Route path="collection-exercises/:status" onEnter={collectionExerciseListMiddleware} component={CollectionExerciseListContainer} />
 
