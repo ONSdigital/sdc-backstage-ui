@@ -43,10 +43,7 @@ function uploadCollectionExerciseSample (opts) {
 		type : 'PUT',
 		data : opts.formData,
 		processData: false,
-		contentType: false,
-		success : function(data) {
-			console.log('Dispatch to change redux state with this data!', data);
-		}
+		contentType: false
 	});
 
 }
