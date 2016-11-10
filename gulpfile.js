@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     reactify = require('reactify'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
-    nodeStatic = require('node-static'),
+    webserver = require('gulp-webserver');
     argv = require('yargs').argv,
 
     config = {
@@ -48,7 +48,16 @@ gulp.task('watch:compile:jsx', ['compile:jsx'], () => {
     gulp.watch(config.jsxSrc, ['compile:jsx']);
 });
 
-
+gulp.task('webserver', () => {
+    gulp.src('./')
+        .pipe(webserver({
+            //livereload: true,
+            //directoryListing: true,
+            //open: true,
+            fallback: 'index.html',
+            port: portNumber
+        }));
+});
 
 
 /**
@@ -56,49 +65,16 @@ gulp.task('watch:compile:jsx', ['compile:jsx'], () => {
  */
 gulp.task('dev', [
     'watch:compile:sass',
-    'watch:compile:jsx'
+    'watch:compile:jsx',
+    'webserver'
 ], () => {
     livereload.listen();
-
-    var fileServer = new nodeStatic.Server('./');
-
-    require('http').createServer(function (request, response) {
-        request.addListener('end', function () {
-            //
-            // Serve files!
-            //
-            fileServer.serve(request, response, function (e, res) {
-
-                if (e && (e.status === 404)) {
-                    fileServer.serveFile('/index.html', 404, {}, request, response);
-                }
-
-            });
-        }).resume();
-    }).listen(portNumber);
-
 });
 
 
-
-
-gulp.task('test', () => {
-    var fileServer = new nodeStatic.Server('./');
-
-    require('http').createServer(function (request, response) {
-        request.addListener('end', function () {
-            //
-            // Serve files!
-            //
-            fileServer.serve(request, response, function (e, res) {
-
-                if (e && (e.status === 404)) {
-                    fileServer.serveFile('/index.html', 404, {}, request, response);
-                }
-
-            });
-        }).resume();
-    }).listen(portNumber);
+gulp.task('test', [
+    'webserver'
+], () => {
 
 });
 
