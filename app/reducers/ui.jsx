@@ -35,7 +35,7 @@ var uiReducer = function (state, action) {
 			newState.collectionExercise.list.activeFilter = action.status;
 			return newState;
 		case 'REQUEST_COLLECTION_EXERCISE_DETAILS':
-			newState.collectionExercise.details = action.collectionExercise.id;
+			newState.collectionExercise.details.id = action.collectionExercise.id;
 			return newState;
 		case 'UI_COLLECTION_EXERCISE_DETAILS':
 			newState.collectionExercise.details.id = action.id;
