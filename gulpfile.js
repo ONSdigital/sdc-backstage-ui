@@ -55,6 +55,7 @@ gulp.task('webserver', () => {
             //directoryListing: true,
             //open: true,
             fallback: 'index.html',
+			host: (process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost'),
             port: portNumber
         }));
 });
