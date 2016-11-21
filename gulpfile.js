@@ -9,6 +9,8 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     argv = require('yargs').argv,
 
+    fs = require('fs'),
+
     config = {
         jsSrc: './app/**/*.js',
         sassSrc: './app/app.scss',
@@ -18,6 +20,26 @@ var gulp = require('gulp'),
     };
 
 var portNumber = argv.port || 8080;
+
+
+/**
+ * Set environment variables use:   heroku config:set PAAS_PROVIDER=heroku
+ */
+if (process.env.PAAS_PROVIDER === 'heroku') {
+
+	let configWrite = fs.writeFileSync("config.json", `
+	{
+      "mode": "dev",
+      "app": {
+        "endpoints": {
+          "sdc-business-response-management": "http://test-sdc-business-response-management.apps.onsdigital.uk",
+          "sdc-survey-registry": "http://sdc-survey-registry.herokuapp.com"
+        }
+      }
+    }`);
+
+	console.log('Config result: ', configWrite);
+}
 
 gulp.task('compile:sass', () => {
     return gulp.src(config.sassSrc)
