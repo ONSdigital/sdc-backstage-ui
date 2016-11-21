@@ -23,14 +23,13 @@ class HTTPHandlerOne(BaseHTTPRequestHandler):
             if not content:
                 self.send_error(404, 'Cannot find {}'.format(file_to_serve))
 
-        if file_to_serve.endswith('.html'):
-            content_type = 'text/html'
-        elif file_to_serve.endswith('.js'):
-            content_type = 'text/javascript'
-        elif file_to_serve.endswith('.json'):
-            content_type = 'application/json'
-        elif file_to_serve.endswith('.css'):
-            content_type = 'text/css'
+        content_type = {
+            'html': 'text/html',
+            'js':   'text/javascript',
+            'json': 'application/json',
+            'css':  'text/css',
+            'ico':  'image/x-icon',
+        }.get(file_to_serve.rpartition('.')[2], 'text/plain')
 
         self.send_response(200)
         self.send_header('Content-Type', '{}; charset=utf-8'.format(content_type))
