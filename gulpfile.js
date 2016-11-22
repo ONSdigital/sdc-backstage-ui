@@ -25,10 +25,12 @@ var portNumber = process.env.PORT || argv.port || 8080;
 /**
  * Set environment variables use:   heroku config:set PAAS_PROVIDER=heroku
  */
-if (process.env.PAAS_PROVIDER === 'heroku') {
+function writeConfig() {
 
-	let configWrite = fs.writeFileSync("config.json",
-`{
+    if (process.env.PAAS_PROVIDER === 'heroku') {
+
+		var configWrite = fs.writeFileSync("config.json",
+			`{
   "mode": "dev",
   "app": {
     "endpoints": {
@@ -37,10 +39,13 @@ if (process.env.PAAS_PROVIDER === 'heroku') {
     }
   }
 }`
-    );
+		);
 
-	console.log('Config result: ', configWrite);
+		console.log('Config result: ', configWrite);
+	}
 }
+
+writeConfig();
 
 gulp.task('compile:sass', () => {
     return gulp.src(config.sassSrc)
