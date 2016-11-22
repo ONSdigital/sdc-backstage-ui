@@ -1,0 +1,9 @@
+{
+  "mode": "dev",
+  "app": {
+    "endpoints": {
+      "sdc-business-response-management": "http://test-sdc-business-response-management.apps.onsdigital.uk",
+      "sdc-survey-registry": "http://sdc-survey-registry.herokuapp.com"
+    }
+  }
+}
