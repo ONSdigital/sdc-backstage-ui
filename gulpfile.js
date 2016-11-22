@@ -27,15 +27,17 @@ var portNumber = process.env.PORT || argv.port || 8080;
  */
 function writeConfig() {
 
+	var configWrite;
+
     if (process.env.PAAS_PROVIDER === 'heroku') {
 
-		var configWrite = fs.writeFileSync("config.json",
+		configWrite = fs.writeFileSync("config.json",
 			`{
   "mode": "dev",
   "app": {
     "endpoints": {
-      "sdc-business-response-management": "http://test-sdc-business-response-management.apps.onsdigital.uk",
-      "sdc-survey-registry": "http://sdc-survey-registry.herokuapp.com"
+      "sdc-business-response-management": "https://test-sdc-business-response-management.apps.onsdigital.uk",
+      "sdc-survey-registry": "https://sdc-survey-registry.herokuapp.com"
     }
   }
 }`
