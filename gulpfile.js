@@ -36,7 +36,7 @@ function writeConfig() {
   "mode": "dev",
   "app": {
     "endpoints": {
-      "sdc-business-response-management": ""https://sdc-business-response-mgmt.herokuapp.com,
+      "sdc-business-response-management": "https://sdc-business-response-mgmt.herokuapp.com",
       "sdc-survey-registry": "https://sdc-survey-registry.herokuapp.com"
     }
   }
