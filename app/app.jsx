@@ -45,7 +45,6 @@ var Provider = require('react-redux').Provider,
     FakeCollectionExerciseDetailsContainer_Published = require('../fake/containers/CollectionExerciseDetailsContainerStates/published.jsx'),
     FakeCollectionExerciseDetailsContainer_Live = require('../fake/containers/CollectionExerciseDetailsContainerStates/live.jsx');
 
-
 var history = syncHistoryWithStore(browserHistory, appStore);
 
 var pageState = {

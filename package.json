@@ -8,7 +8,11 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
   "dependencies": {
     "browserify": "^13.1.0",
     "bootstrap-sass": "^3.3.7",
