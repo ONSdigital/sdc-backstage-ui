@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		app: './app/app.jsx'
+		app: ['./app/app.jsx', 'webpack/hot/dev-server']
 	},
 	output: {
 		path: __dirname + '/build/',
@@ -28,6 +28,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		//new webpack.HotModuleReplacementPlugin()
 	]
 };
